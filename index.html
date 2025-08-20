@@ -1,162 +1,189 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DarkWingStudio — Portfolio</title>
-  <meta name="description" content="DarkWingStudio: dark anime aesthetics, wallpapers, characters, and UI experiments." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DarkWingStudio | Portfolio</title>
   <style>
-    :root{
-      --bg:#0a0a0f; --panel:#0f1116; --soft:#151521; --line:rgba(255,255,255,.08);
-      --text:#e6e7ee; --muted:#a0a8b7; --vio:#a78bfa; --cyan:#22d3ee;
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{width:min(1100px,94%);margin:0 auto}/* Header */
-header{border-bottom:1px solid var(--line);background:rgba(10,10,15,.55);backdrop-filter:blur(8px)}
-.bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.badge{width:28px;height:28px;border-radius:10px;background:radial-gradient(60% 60% at 65% 35%, var(--vio), transparent 70%),radial-gradient(60% 60% at 35% 65%, var(--cyan), transparent 70%),#1a1b26;box-shadow:0 0 0 1px var(--line), 0 10px 24px rgba(167,139,250,.25)}
-.socials{display:flex;gap:10px}
-.chip-link{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
-.chip-link:hover{border-color:var(--vio)}
-.chip-link svg{width:18px;height:18px;fill:currentColor}
 
-/* Hero */
-.hero{position:relative;overflow:hidden}
-.hero .inner{padding:44px 0 22px;text-align:center}
-h1{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:clamp(26px,6vw,48px);margin:0}
-.lede{color:#cdd5e6;margin:8px auto 0;max-width:780px}
-.glow{position:absolute;filter:blur(60px);opacity:.35;pointer-events:none}
-.glow.v{width:520px;height:520px;background:radial-gradient(circle,var(--vio),transparent 60%);top:-160px;left:-160px}
-.glow.c{width:520px;height:520px;background:radial-gradient(circle,var(--cyan),transparent 60%);bottom:-160px;right:-160px}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+    }
 
-/* Filters */
-.section{padding:28px 0}
-.section-title{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(20px,3.2vw,28px);margin:0 0 10px}
-.filters{display:flex;gap:10px;flex-wrap:wrap}
-.filter{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:#cbd5e1;cursor:pointer}
-.filter[aria-pressed="true"]{background:linear-gradient(90deg,var(--vio),var(--cyan));color:#0b0b10;border:none}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.85);
+    }
 
-/* Grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease}
-.card:hover{transform:translateY(-2px)}
-.thumb{aspect-ratio:4/3;background:#111;background-size:cover;background-position:center}
-.body{padding:10px 12px}
-.title{margin:2px 0 2px;font-weight:700}
-.meta{color:var(--muted);font-size:13px}
+    header img {
+      height: 60px;
+    }
 
-/* Footer */
-footer{border-top:1px solid var(--line);color:#9aa3b2}
-.foot{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
 
-@media (max-width:860px){
-  .socials{display:none}
-}
+    nav ul li {
+      margin: 0 15px;
+    }
 
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #a855f7; /* Purple hover */
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to bottom right, #111, #1a1a1a);
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #a855f7;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 60px 50px;
+      background-color: #141414;
+    }
+
+    .portfolio h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #a855f7;
+      font-size: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background: #2b2b2b;
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 60px 50px;
+      text-align: center;
+      background: #0d0d0d;
+    }
+
+    .contact h2 {
+      color: #a855f7;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      margin-bottom: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #888;
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="wrap bar">
-      <a class="brand" href="#"><span class="badge"></span> DarkWingStudio</a>
-      <nav class="socials" aria-label="Social links">
-        <a class="chip-link" href="https://pinterest.com/your-handle" target="_blank" rel="noopener" aria-label="Pinterest">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.56 2 3 5.37 3 9.72c0 2.9 1.63 4.55 3.17 4.55 0 .71-.38 2.62-.49 3.01-.08.34.15.67.5.67.52 0 1.81-.69 2.46-1.31.59.31 1.63.54 2.43.54 4.44 0 7.93-3.2 7.93-7.65C19 5.22 16.06 2 12.04 2z"/></svg>
-          Pinterest
-        </a>
-        <a class="chip-link" href="https://instagram.com/your-handle" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A5.5 5.5 0 1 0 17.5 13 5.5 5.5 0 0 0 12 7.5zM18 6.7a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
-          Instagram
-        </a>
-        <a class="chip-link" href="https://ko-fi.com/your-handle" target="_blank" rel="noopener" aria-label="Ko-fi">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6c0-1.1.9-2 2-2h10.2c.9 0 1.7.6 1.9 1.5.3 1.3.6 2.8 2.9 3 .9.1 1.9.7 1.9 2.6s-1 2.5-1.9 2.6c-1.5.2-3 .3-4.5.3V19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V6z"/></svg>
-          Ko‑fi
-        </a>
-      </nav>
+    <img src="darkwing-logo.png" alt="DarkWingStudio Logo">
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h1>Welcome to DarkWingStudio</h1>
+    <p>Creative designs, anime edits, and digital artistry brought to life with passion and vision.</p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio" id="portfolio">
+    <h2>Our Works</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="design1.png" alt="Design 1">
+        <p>Anime Edit</p>
+      </div>
+      <div class="card">
+        <img src="design2.png" alt="Design 2">
+        <p>Digital Artwork</p>
+      </div>
+      <div class="card">
+        <img src="design3.png" alt="Design 3">
+        <p>Creative Logo</p>
+      </div>
     </div>
-  </header>  <section class="hero">
-    <div class="glow v"></div>
-    <div class="glow c"></div>
-    <div class="wrap inner">
-      <h1>Portfolio</h1>
-      <p class="lede">Dark anime vibes, neon glow, and clean interfaces. Click any card to open the full image in a new tab.
-      </p>
-    </div>
-  </section>  <main class="wrap section" id="work">
-    <h2 class="section-title">Browse</h2><div class="filters" role="toolbar" aria-label="Category filters">
-  <button class="filter" data-filter="*" aria-pressed="true">All</button>
-  <button class="filter" data-filter="wallpaper">Wallpapers</button>
-  <button class="filter" data-filter="character">Characters</button>
-  <button class="filter" data-filter="logo">Logos</button>
-  <button class="filter" data-filter="ui">UI</button>
-</div>
+  </section>
 
-<div class="grid" id="gallery">
-  <!-- Replace the image URLs with yours later. Keep data-cat the same for filtering. -->
-  <a class="card" data-cat="wallpaper" href="https://dummyimage.com/1600x1200/151521/a78bfa&text=Neon+Shadows" target="_blank" rel="noopener">
-    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/a78bfa&text=Neon+Shadows')"></div>
-    <div class="body"><div class="title">Neon Shadows</div><div class="meta">Wallpaper Pack</div></div>
-  </a>
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: darkwingstudio@email.com</p>
+    <p>Instagram: @darkwingstudio</p>
+    <p>Pinterest: pinterest.com/darkwingstudio</p>
+  </section>
 
-  <a class="card" data-cat="character" href="https://dummyimage.com/1600x1200/151521/22d3ee&text=Shadow+Protagonist" target="_blank" rel="noopener">
-    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/22d3ee&text=Shadow+Protagonist')"></div>
-    <div class="body"><div class="title">Shadow Protagonist</div><div class="meta">Character Concept</div></div>
-  </a>
-
-  <a class="card" data-cat="logo" href="https://dummyimage.com/1600x1200/151521/cbd5e1&text=Logo+Mark" target="_blank" rel="noopener">
-    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/cbd5e1&text=Logo+Mark')"></div>
-    <div class="body"><div class="title">Logo Mark</div><div class="meta">Brand</div></div>
-  </a>
-
-  <a class="card" data-cat="ui" href="https://dummyimage.com/1600x1200/151521/9aa3b2&text=HUD+Overlay" target="_blank" rel="noopener">
-    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/9aa3b2&text=HUD+Overlay')"></div>
-    <div class="body"><div class="title">HUD Overlay</div><div class="meta">UI Concept</div></div>
-  </a>
-
-  <a class="card" data-cat="wallpaper" href="https://dummyimage.com/1600x1200/151521/a78bfa&text=Cyber+Wave" target="_blank" rel="noopener">
-    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/a78bfa&text=Cyber+Wave')"></div>
-    <div class="body"><div class="title">Cyber Wave</div><div class="meta">Wallpaper</div></div>
-  </a>
-
-  <a class="card" data-cat="character" href="https://dummyimage.com/1600x1200/151521/22d3ee&text=Guardian" target="_blank" rel="noopener">
-    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/22d3ee&text=Guardian')"></div>
-    <div class="body"><div class="title">Guardian</div><div class="meta">Character Concept</div></div>
-  </a>
-</div>
-
-  </main>  <footer>
-    <div class="wrap foot">
-      <span>© <span id="year"></span> DarkWingStudio</span>
-      <span class="meta">Single‑file portfolio (v1)</span>
-    </div>
-  </footer>  <script>
-    // Year stamp
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Simple filter logic (no frameworks)
-    const buttons = document.querySelectorAll('.filter');
-    const cards = document.querySelectorAll('.card');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // update pressed state
-        buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
-        btn.setAttribute('aria-pressed', 'true');
-
-        const f = btn.getAttribute('data-filter');
-        cards.forEach(card => {
-          const cat = card.getAttribute('data-cat');
-          const show = (f === '*') || (cat === f);
-          card.style.display = show ? '' : 'none';
-        });
-      });
-    });
-  </script></body>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 DarkWingStudio | All Rights Reserved</p>
+  </footer>
+</body>
 </html>
