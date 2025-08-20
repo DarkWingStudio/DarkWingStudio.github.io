@@ -1,15 +1,11 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DarkWingStudio — Portfolio</title>
   <meta name="description" content="DarkWingStudio: dark anime aesthetics, wallpapers, characters, and UI experiments." />
-  <!-- SEO / Social -->
-  <meta property="og:title" content="DarkWingStudio — Portfolio" />
-  <meta property="og:description" content="DarkWingStudio: dark anime aesthetics, wallpapers, characters, and UI experiments." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://darkwingstudio.github.io/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
@@ -22,40 +18,49 @@
     html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .visually-hidden{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
-    .wrap{width:min(1100px,94%);margin:0 auto}
-    header{border-bottom:1px solid var(--line);background:rgba(10,10,15,.55);backdrop-filter:blur(8px)}
-    .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .badge{width:28px;height:28px;border-radius:10px;background:radial-gradient(60% 60% at 65% 35%, var(--vio), transparent 70%),radial-gradient(60% 60% at 35% 65%, var(--cyan), transparent 70%),#1a1b26;box-shadow:0 0 0 1px var(--line), 0 10px 24px rgba(167,139,250,.25)}
-    .socials{display:flex;gap:10px}
-    .chip-link{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
-    .chip-link:hover{border-color:var(--vio)}
-    .chip-link svg{width:18px;height:18px;fill:currentColor}
-    .hero{position:relative;overflow:hidden}
-    .hero .inner{padding:44px 0 22px;text-align:center}
-    h1{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:clamp(26px,6vw,48px);margin:0}
-    .lede{color:#cdd5e6;margin:8px auto 0;max-width:780px}
-    .glow{position:absolute;filter:blur(60px);opacity:.35;pointer-events:none}
-    .glow.v{width:520px;height:520px;background:radial-gradient(circle,var(--vio),transparent 60%);top:-160px;left:-160px}
-    .glow.c{width:520px;height:520px;background:radial-gradient(circle,var(--cyan),transparent 60%);bottom:-160px;right:-160px}
-    .section{padding:28px 0}
-    .section-title{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(20px,3.2vw,28px);margin:0 0 10px}
-    .filters{display:flex;gap:10px;flex-wrap:wrap}
-    .filter{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:#cbd5e1;cursor:pointer}
-    .filter[aria-pressed="true"]{background:linear-gradient(90deg,var(--vio),var(--cyan));color:#0b0b10;border:none}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease}
-    .card:hover{transform:translateY(-2px)}
-    .thumb{aspect-ratio:4/3;background:#111;background-size:cover;background-position:center}
-    .body{padding:10px 12px}
-    .title{margin:2px 0 2px;font-weight:700}
-    .meta{color:var(--muted);font-size:13px}
-    footer{border-top:1px solid var(--line);color:#9aa3b2}
-    .foot{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-    @media (max-width:860px){
-      .socials{display:none}
-    }
+    .wrap{width:min(1100px,94%);margin:0 auto}/* Header */
+header{border-bottom:1px solid var(--line);background:rgba(10,10,15,.55);backdrop-filter:blur(8px)}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.badge{width:28px;height:28px;border-radius:10px;background:radial-gradient(60% 60% at 65% 35%, var(--vio), transparent 70%),radial-gradient(60% 60% at 35% 65%, var(--cyan), transparent 70%),#1a1b26;box-shadow:0 0 0 1px var(--line), 0 10px 24px rgba(167,139,250,.25)}
+.socials{display:flex;gap:10px}
+.chip-link{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
+.chip-link:hover{border-color:var(--vio)}
+.chip-link svg{width:18px;height:18px;fill:currentColor}
+
+/* Hero */
+.hero{position:relative;overflow:hidden}
+.hero .inner{padding:44px 0 22px;text-align:center}
+h1{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:clamp(26px,6vw,48px);margin:0}
+.lede{color:#cdd5e6;margin:8px auto 0;max-width:780px}
+.glow{position:absolute;filter:blur(60px);opacity:.35;pointer-events:none}
+.glow.v{width:520px;height:520px;background:radial-gradient(circle,var(--vio),transparent 60%);top:-160px;left:-160px}
+.glow.c{width:520px;height:520px;background:radial-gradient(circle,var(--cyan),transparent 60%);bottom:-160px;right:-160px}
+
+/* Filters */
+.section{padding:28px 0}
+.section-title{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(20px,3.2vw,28px);margin:0 0 10px}
+.filters{display:flex;gap:10px;flex-wrap:wrap}
+.filter{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:#cbd5e1;cursor:pointer}
+.filter[aria-pressed="true"]{background:linear-gradient(90deg,var(--vio),var(--cyan));color:#0b0b10;border:none}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease}
+.card:hover{transform:translateY(-2px)}
+.thumb{aspect-ratio:4/3;background:#111;background-size:cover;background-position:center}
+.body{padding:10px 12px}
+.title{margin:2px 0 2px;font-weight:700}
+.meta{color:var(--muted);font-size:13px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);color:#9aa3b2}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+
+@media (max-width:860px){
+  .socials{display:none}
+}
+
   </style>
 </head>
 <body>
@@ -77,65 +82,62 @@
         </a>
       </nav>
     </div>
-  </header>
-  <section class="hero">
+  </header>  <section class="hero">
     <div class="glow v"></div>
     <div class="glow c"></div>
     <div class="wrap inner">
       <h1>Portfolio</h1>
-      <p class="lede">Dark anime vibes, neon glow, and clean interfaces. Click any card to open the full image in a new tab.</p>
+      <p class="lede">Dark anime vibes, neon glow, and clean interfaces. Click any card to open the full image in a new tab.
+      </p>
     </div>
-  </section>
-  <main class="wrap section" id="work">
-    <h2 class="section-title">Browse</h2>
-    <div class="filters" role="toolbar" aria-label="Category filters">
-      <button class="filter" data-filter="*" aria-pressed="true" type="button">All</button>
-      <button class="filter" data-filter="wallpaper" type="button">Wallpapers</button>
-      <button class="filter" data-filter="character" type="button">Characters</button>
-      <button class="filter" data-filter="logo" type="button">Logos</button>
-      <button class="filter" data-filter="ui" type="button">UI</button>
-    </div>
-    <div class="grid" id="gallery">
-      <!-- Each card includes visually hidden text for accessibility -->
-      <a class="card" data-cat="wallpaper" href="https://dummyimage.com/1600x1200/151521/a78bfa&text=Neon+Shadows" target="_blank" rel="noopener">
-        <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/a78bfa&text=Neon+Shadows')"></div>
-        <span class="visually-hidden">Neon Shadows Wallpaper Pack</span>
-        <div class="body"><div class="title">Neon Shadows</div><div class="meta">Wallpaper Pack</div></div>
-      </a>
-      <a class="card" data-cat="character" href="https://dummyimage.com/1600x1200/151521/22d3ee&text=Shadow+Protagonist" target="_blank" rel="noopener">
-        <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/22d3ee&text=Shadow+Protagonist')"></div>
-        <span class="visually-hidden">Shadow Protagonist Character Concept</span>
-        <div class="body"><div class="title">Shadow Protagonist</div><div class="meta">Character Concept</div></div>
-      </a>
-      <a class="card" data-cat="logo" href="https://dummyimage.com/1600x1200/151521/cbd5e1&text=Logo+Mark" target="_blank" rel="noopener">
-        <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/cbd5e1&text=Logo+Mark')"></div>
-        <span class="visually-hidden">Logo Mark Brand</span>
-        <div class="body"><div class="title">Logo Mark</div><div class="meta">Brand</div></div>
-      </a>
-      <a class="card" data-cat="ui" href="https://dummyimage.com/1600x1200/151521/9aa3b2&text=HUD+Overlay" target="_blank" rel="noopener">
-        <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/9aa3b2&text=HUD+Overlay')"></div>
-        <span class="visually-hidden">HUD Overlay UI Concept</span>
-        <div class="body"><div class="title">HUD Overlay</div><div class="meta">UI Concept</div></div>
-      </a>
-      <a class="card" data-cat="wallpaper" href="https://dummyimage.com/1600x1200/151521/a78bfa&text=Cyber+Wave" target="_blank" rel="noopener">
-        <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/a78bfa&text=Cyber+Wave')"></div>
-        <span class="visually-hidden">Cyber Wave Wallpaper</span>
-        <div class="body"><div class="title">Cyber Wave</div><div class="meta">Wallpaper</div></div>
-      </a>
-      <a class="card" data-cat="character" href="https://dummyimage.com/1600x1200/151521/22d3ee&text=Guardian" target="_blank" rel="noopener">
-        <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/22d3ee&text=Guardian')"></div>
-        <span class="visually-hidden">Guardian Character Concept</span>
-        <div class="body"><div class="title">Guardian</div><div class="meta">Character Concept</div></div>
-      </a>
-    </div>
-  </main>
-  <footer>
+  </section>  <main class="wrap section" id="work">
+    <h2 class="section-title">Browse</h2><div class="filters" role="toolbar" aria-label="Category filters">
+  <button class="filter" data-filter="*" aria-pressed="true">All</button>
+  <button class="filter" data-filter="wallpaper">Wallpapers</button>
+  <button class="filter" data-filter="character">Characters</button>
+  <button class="filter" data-filter="logo">Logos</button>
+  <button class="filter" data-filter="ui">UI</button>
+</div>
+
+<div class="grid" id="gallery">
+  <!-- Replace the image URLs with yours later. Keep data-cat the same for filtering. -->
+  <a class="card" data-cat="wallpaper" href="https://dummyimage.com/1600x1200/151521/a78bfa&text=Neon+Shadows" target="_blank" rel="noopener">
+    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/a78bfa&text=Neon+Shadows')"></div>
+    <div class="body"><div class="title">Neon Shadows</div><div class="meta">Wallpaper Pack</div></div>
+  </a>
+
+  <a class="card" data-cat="character" href="https://dummyimage.com/1600x1200/151521/22d3ee&text=Shadow+Protagonist" target="_blank" rel="noopener">
+    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/22d3ee&text=Shadow+Protagonist')"></div>
+    <div class="body"><div class="title">Shadow Protagonist</div><div class="meta">Character Concept</div></div>
+  </a>
+
+  <a class="card" data-cat="logo" href="https://dummyimage.com/1600x1200/151521/cbd5e1&text=Logo+Mark" target="_blank" rel="noopener">
+    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/cbd5e1&text=Logo+Mark')"></div>
+    <div class="body"><div class="title">Logo Mark</div><div class="meta">Brand</div></div>
+  </a>
+
+  <a class="card" data-cat="ui" href="https://dummyimage.com/1600x1200/151521/9aa3b2&text=HUD+Overlay" target="_blank" rel="noopener">
+    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/9aa3b2&text=HUD+Overlay')"></div>
+    <div class="body"><div class="title">HUD Overlay</div><div class="meta">UI Concept</div></div>
+  </a>
+
+  <a class="card" data-cat="wallpaper" href="https://dummyimage.com/1600x1200/151521/a78bfa&text=Cyber+Wave" target="_blank" rel="noopener">
+    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/a78bfa&text=Cyber+Wave')"></div>
+    <div class="body"><div class="title">Cyber Wave</div><div class="meta">Wallpaper</div></div>
+  </a>
+
+  <a class="card" data-cat="character" href="https://dummyimage.com/1600x1200/151521/22d3ee&text=Guardian" target="_blank" rel="noopener">
+    <div class="thumb" style="background-image:url('https://dummyimage.com/800x600/151521/22d3ee&text=Guardian')"></div>
+    <div class="body"><div class="title">Guardian</div><div class="meta">Character Concept</div></div>
+  </a>
+</div>
+
+  </main>  <footer>
     <div class="wrap foot">
       <span>© <span id="year"></span> DarkWingStudio</span>
       <span class="meta">Single‑file portfolio (v1)</span>
     </div>
-  </footer>
-  <script>
+  </footer>  <script>
     // Year stamp
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -147,6 +149,7 @@
         // update pressed state
         buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
         btn.setAttribute('aria-pressed', 'true');
+
         const f = btn.getAttribute('data-filter');
         cards.forEach(card => {
           const cat = card.getAttribute('data-cat');
@@ -155,6 +158,5 @@
         });
       });
     });
-  </script>
-</body>
+  </script></body>
 </html>
