@@ -3,187 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DarkWingStudio | Portfolio</title>
-  <style>
-    /* Global Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0d0d0d;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background: rgba(0, 0, 0, 0.85);
-    }
-
-    header img {
-      height: 60px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #a855f7; /* Purple hover */
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(to bottom right, #111, #1a1a1a);
-      padding: 40px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #a855f7;
-    }
-
-    .hero p {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      max-width: 600px;
-    }
-
-    /* Portfolio Section */
-    .portfolio {
-      padding: 60px 50px;
-      background-color: #141414;
-    }
-
-    .portfolio h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #a855f7;
-      font-size: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #1f1f1f;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      background: #2b2b2b;
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    /* Contact Section */
-    .contact {
-      padding: 60px 50px;
-      text-align: center;
-      background: #0d0d0d;
-    }
-
-    .contact h2 {
-      color: #a855f7;
-      margin-bottom: 20px;
-    }
-
-    .contact p {
-      margin-bottom: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #888;
-    }
-  </style>
+  <title>Official Project Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
+  <!-- Navigation -->
   <header>
-    <img src="darkwing-logo.png" alt="DarkWingStudio Logo">
-    <nav>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+    <nav class="navbar">
+      <h1 class="logo">ProjectName</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#docs">Docs</a></li>
+        <li><a href="#contributors">Contributors</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <h1>Welcome to DarkWingStudio</h1>
-    <p>Creative designs, anime edits, and digital artistry brought to life with passion and vision.</p>
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <h2>Welcome to ProjectName</h2>
+    <p>A short tagline goes here.</p>
+    <a href="https://github.com/YourRepo" target="_blank" class="btn">View on GitHub</a>
   </section>
 
-  <!-- Portfolio Section -->
-  <section class="portfolio" id="portfolio">
-    <h2>Our Works</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="design1.png" alt="Design 1">
-        <p>Anime Edit</p>
-      </div>
-      <div class="card">
-        <img src="design2.png" alt="Design 2">
-        <p>Digital Artwork</p>
-      </div>
-      <div class="card">
-        <img src="design3.png" alt="Design 3">
-        <p>Creative Logo</p>
-      </div>
-    </div>
+  <!-- About -->
+  <section id="about">
+    <h2>About</h2>
+    <p>Explain what your project does and why it exists.</p>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: darkwingstudio@email.com</p>
-    <p>Instagram: @darkwingstudio</p>
-    <p>Pinterest: pinterest.com/darkwingstudio</p>
+  <!-- Docs -->
+  <section id="docs">
+    <h2>Documentation</h2>
+    <p>Link to <a href="https://github.com/YourRepo/wiki">GitHub Wiki</a> or README.</p>
+  </section>
+
+  <!-- Contributors -->
+  <section id="contributors">
+    <h2>Contributors</h2>
+    <p>List or showcase avatars of contributors here.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Community & Contact</h2>
+    <p>Links to Discord, GitHub Discussions, or socials.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 DarkWingStudio | All Rights Reserved</p>
+    <p>© 2025 ProjectName | MIT License</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
