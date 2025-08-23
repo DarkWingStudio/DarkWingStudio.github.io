@@ -1,2 +1,2 @@
-// For now just placeholder (can add theme toggle, animations, etc.)
-console.log("Website loaded!");
+// Future enhancements: animations, theme toggle, form validation
+console.log("Portfolio site loaded!");
