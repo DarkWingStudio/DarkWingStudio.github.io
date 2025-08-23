@@ -1,84 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DarkWingStudio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">MyPortfolio</h1>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>DarkWingStudio</h1>
+      <p>The Hub for My Creations</p>
+      <a href="#socials" class="btn">Explore</a>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <h2>Hello, I'm <span>Your Name</span></h2>
-    <p>A passionate <strong>Developer | Designer | Creator</strong></p>
-    <a href="#projects" class="btn">View My Work</a>
-  </section>
-
-  <!-- About -->
-  <section id="about">
+  <!-- About Section -->
+  <section class="about">
     <h2>About Me</h2>
     <p>
-      Hi! I'm Rohit Kumar, a developer passionate about building modern, creative, 
-      and user-friendly applications. I love learning new technologies and solving problems with code.
+      Welcome to DarkWingStudio — your one-stop hub for my art, designs, and projects.
+      Find all my official social accounts and support options here.
     </p>
   </section>
 
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Project One</h3>
-        <p>Short description of your project goes here.</p>
-        <a href="https://github.com/yourusername/project1" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>Project Two</h3>
-        <p>Another project description here.</p>
-        <a href="https://github.com/yourusername/project2" target="_blank">View on GitHub</a>
-      </div>
+  <!-- Social Links -->
+  <section class="socials" id="socials">
+    <h2>Find Me Online</h2>
+    <div class="social-grid">
+      <a href="#" class="social-card">Instagram</a>
+      <a href="#" class="social-card">Pinterest</a>
+      <a href="#" class="social-card">YouTube</a>
+      <a href="#" class="social-card">Ko-fi</a>
+      <a href="#" class="social-card">Twitch</a>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>HTML / CSS</li>
-      <li>JavaScript</li>
-      <li>Python</li>
-      <li>Java</li>
-      <li>React</li>
-    </ul>
+  <!-- Shop Section -->
+  <section class="shop">
+    <h2>Shop & Support</h2>
+    <p>Check out my store and support my work.</p>
+    <div class="shop-buttons">
+      <a href="#" class="btn">Ko-fi Shop</a>
+      <a href="#" class="btn">Redbubble</a>
+    </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Reach me at: <strong>darkwingstudio@email.com</strong></p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 DarkWingStudio| Built with ❤</p>
+    <p>© 2025 DarkWingStudio. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
