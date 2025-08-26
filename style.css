@@ -1,0 +1,155 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0d0d0d;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(15, 15, 15, 0.9);
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.logo span {
+  color: #8e44ad;
+  text-shadow: 0 0 10px #8e44ad;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #8e44ad;
+  text-shadow: 0 0 8px #8e44ad;
+}
+
+/* Hero */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero h1 span {
+  color: #8e44ad;
+  text-shadow: 0 0 15px #8e44ad;
+}
+
+.hero p {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #8e44ad;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #9b59b6;
+  box-shadow: 0 0 15px #9b59b6;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 0 0 8px #8e44ad;
+}
+
+/* About */
+.about p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #bbb;
+}
+
+/* Portfolio */
+.portfolio .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #8e44ad;
+  box-shadow: 0 0 15px #8e44ad;
+}
+
+/* Contact */
+.contact p {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #bbb;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  font-size: 0.9rem;
+  color: #666;
+}
