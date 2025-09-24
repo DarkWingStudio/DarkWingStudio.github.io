@@ -1,25 +1,92 @@
-canvas{
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #1A0D2B, #0D001A); /* Dark purple gradient */
+    color: #EDE7F6; /* Light purple text */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-50.7K
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+}
 
-position:
+.logo {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
 
-absolute;
+.pfp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #6A1B9A; /* Purple border */
+    box-shadow: 0 0 20px rgba(106, 27, 154, 0.7); /* Glow effect */
+    margin-bottom: 15px;
+}
 
-left: 0;
+h1 {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #BB86FC; /* Brighter purple */
+}
 
-top: 0;
+p {
+    font-size: 1em;
+    margin: 0 0 30px;
+}
 
-534
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-width:
+.link-btn {
+    background: #2E1A47; /* Darker purple */
+    color: #EDE7F6;
+    padding: 15px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-100%;
+.link-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(106, 27, 154, 0.8); /* Hover glow */
+}
 
-height:
+.affiliate {
+    background: #4A148C; /* Slightly different for affiliates */
+}
 
-100%;
+footer {
+    margin-top: 40px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
 
-background-color: #00000033;
-
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .link-btn {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
 }
