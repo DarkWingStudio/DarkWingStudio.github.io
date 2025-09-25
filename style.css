@@ -1,92 +1,140 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #1A0D2B, #0D001A); /* Dark purple gradient */
-    color: #EDE7F6; /* Light purple text */
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container {
-    max-width: 600px;
-    width: 100%;
-    padding: 40px 20px;
-    text-align: center;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #2a0045, #5d2e8c);
+  color: white;
+  line-height: 1.6;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .logo {
-    max-width: 300px;
-    margin-bottom: 20px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #5d2e8c;
+  animation: glow 2s infinite alternate;
 }
 
-.pfp {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #6A1B9A; /* Purple border */
-    box-shadow: 0 0 20px rgba(106, 27, 154, 0.7); /* Glow effect */
-    margin-bottom: 15px;
+@keyframes glow {
+  from { box-shadow: 0 0 5px #5d2e8c; }
+  to { box-shadow: 0 0 20px #5d2e8c; }
 }
 
-h1 {
-    font-size: 2em;
-    margin: 10px 0;
-    color: #BB86FC; /* Brighter purple */
+nav {
+  margin-top: 10px;
 }
 
-p {
-    font-size: 1em;
-    margin: 0 0 30px;
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
 }
 
-.links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+nav a:hover {
+  color: #b19cd9;
 }
 
-.link-btn {
-    background: #2E1A47; /* Darker purple */
-    color: #EDE7F6;
-    padding: 15px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1.1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+.hero {
+  padding: 50px 20px;
+  background: url('cover-image.jpg') no-repeat center/cover;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0 10px #5d2e8c;
 }
 
-.link-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(106, 27, 154, 0.8); /* Hover glow */
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
-.affiliate {
-    background: #4A148C; /* Slightly different for affiliates */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #5d2e8c;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #b19cd9;
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #5d2e8c;
+}
+
+.portfolio-grid, .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-item img, .gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio-item img:hover, .gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #5d2e8c;
+}
+
+.portfolio-item p {
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+.social-links a {
+  color: #b19cd9;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
 }
 
 footer {
-    margin-top: 40px;
-    font-size: 0.8em;
-    opacity: 0.7;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  margin-top: 20px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
-    .container {
-        padding: 20px 10px;
-    }
-    h1 {
-        font-size: 1.5em;
-    }
-    .link-btn {
-        font-size: 1em;
-        padding: 12px 15px;
-    }
+@media (max-width: 768px) {
+  .hero {
+    height: 300px;
+  }
+  .hero h1 {
+    font-size: 2em;
+  }
+  .portfolio-grid, .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
