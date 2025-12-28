@@ -4,215 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarkWing Studio | Reizen</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Icons (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --accent: #a855f7;
-            --bg: #050505;
-            --card: #0f0f12;
-        }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: #ffffff;
-            overflow: hidden;
+        :root { --purple: #a855f7; --dark: #09090b; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--dark); 
+            color: white;
+            -webkit-tap-highlight-color: transparent;
         }
         .mono { font-family: 'JetBrains Mono', monospace; }
+        .purple-glow { box-shadow: 0 0 20px rgba(168, 85, 247, 0.15); }
         
-        /* Smooth Section Transitions */
-        section { display: none; opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        section.active { display: block; opacity: 1; transform: translateY(0); }
+        /* Smooth Page Switching */
+        .page { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .page.active { display: block; opacity: 1; }
 
-        /* UI Enhancements */
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .purple-glow:hover { box-shadow: 0 0 30px rgba(168, 85, 247, 0.2); border-color: var(--accent); }
-        .nav-active { color: var(--accent); position: relative; }
-        .nav-active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
-        
-        /* Animated Background Gradient */
-        .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
-            z-index: -1; pointer-events: none;
-        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 10px; }
+
+        /* Bottom Nav Active State */
+        .nav-item.active { color: var(--purple); }
     </style>
 </head>
-<body class="flex h-screen">
+<body class="min-h-screen flex flex-col">
 
-    <div class="bg-glow"></div>
-
-    <!-- SIDEBAR -->
-    <aside class="w-20 md:w-24 bg-[#0a0a0c] border-r border-white/5 flex flex-col items-center py-8 justify-between z-50">
-        <div class="space-y-8 flex flex-col items-center">
-            <!-- Logo Icon -->
-            <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center border border-purple-500/30">
-                <i data-lucide="zap" class="text-purple-500 fill-purple-500"></i>
-            </div>
-            
-            <!-- Main Social Icons -->
-            <nav class="flex flex-col gap-6 text-gray-500">
-                <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-400 transition"><i data-lucide="github"></i></a>
-                <a href="https://www.instagram.com/darkwing.in" target="_blank" class="hover:text-pink-500 transition"><i data-lucide="instagram"></i></a>
-                <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-red-500 transition"><i data-lucide="youtube"></i></a>
-                <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="hover:text-red-400 transition"><i data-lucide="image"></i></a>
-            </nav>
+    <!-- DESKTOP TOP NAV (Hidden on Mobile) -->
+    <nav class="hidden md:flex fixed top-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/5 px-10 py-5 justify-between items-center">
+        <div class="text-xl font-black tracking-tighter">DARKWING<span class="text-purple-500">STUDIO</span></div>
+        <div class="flex gap-8 text-sm font-bold uppercase tracking-widest">
+            <button onclick="showPage('home')" class="hover:text-purple-500 transition">Home</button>
+            <button onclick="showPage('portfolio')" class="hover:text-purple-500 transition">Portfolio</button>
+            <button onclick="showPage('services')" class="hover:text-purple-500 transition">Services</button>
+            <button onclick="showPage('contact')" class="hover:text-purple-500 transition">Contact</button>
         </div>
+    </nav>
 
-        <div class="flex flex-col gap-6 text-gray-500">
-            <a href="https://patreon.com/Darkwingdomain" target="_blank" class="hover:text-orange-400 transition"><i data-lucide="heart"></i></a>
-            <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="hover:text-blue-400 transition"><i data-lucide="coffee"></i></a>
-        </div>
-    </aside>
+    <!-- MOBILE BOTTOM NAV (Hidden on Desktop) -->
+    <nav class="md:hidden fixed bottom-0 w-full z-50 bg-black/80 backdrop-blur-xl border-t border-white/10 px-6 py-4 flex justify-between items-center text-gray-400">
+        <button onclick="showPage('home')" class="nav-item active flex flex-col items-center gap-1">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-[10px]">Home</span>
+        </button>
+        <button onclick="showPage('portfolio')" class="nav-item flex flex-col items-center gap-1">
+            <i class="fa-solid fa-grid-2 text-lg"></i>
+            <i class="fa-solid fa-layer-group"></i>
+            <span class="text-[10px]">Work</span>
+        </button>
+        <button onclick="showPage('services')" class="nav-item flex flex-col items-center gap-1">
+            <i class="fa-solid fa-code text-lg"></i>
+            <span class="text-[10px]">Services</span>
+        </button>
+        <button onclick="showPage('contact')" class="nav-item flex flex-col items-center gap-1">
+            <i class="fa-solid fa-envelope text-lg"></i>
+            <span class="text-[10px]">Contact</span>
+        </button>
+    </nav>
 
-    <!-- CONTENT WRAPPER -->
-    <main class="flex-1 flex flex-col relative overflow-y-auto">
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 mt-6 md:mt-24 mb-24 md:mb-0">
         
-        <!-- TOP NAVBAR -->
-        <header class="sticky top-0 z-40 px-8 py-6 flex justify-between items-center glass border-b border-white/5">
-            <div class="mono text-xs tracking-tighter text-gray-400 uppercase">
-                <span class="text-purple-500">●</span> System: Stable // User: Reizen
-            </div>
-            <nav class="flex gap-8 text-[11px] font-extrabold uppercase tracking-[0.2em]">
-                <button onclick="switchTab('home')" id="tab-home" class="nav-active transition">Home</button>
-                <button onclick="switchTab('portfolio')" id="tab-portfolio" class="hover:text-purple-400 transition">Portfolio</button>
-                <button onclick="switchTab('services')" id="tab-services" class="hover:text-purple-400 transition">Services</button>
-                <button onclick="switchTab('about')" id="tab-about" class="hover:text-purple-400 transition">About</button>
-                <button onclick="switchTab('contact')" id="tab-contact" class="hover:text-purple-400 transition">Contact</button>
-            </nav>
-        </header>
-
-        <!-- HERO SECTION -->
-        <section id="home" class="active h-full flex items-center px-8 md:px-20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="inline-block px-3 py-1 rounded-full glass border border-purple-500/20 text-[10px] mono text-purple-400 uppercase tracking-widest">Available for Freelance</div>
-                    <h1 class="text-7xl md:text-8xl font-black leading-tight">DARK<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">WING</span></h1>
-                    <p class="text-gray-400 max-w-md text-lg leading-relaxed">
-                        I am <span class="text-white font-semibold">Rohit (Reizen)</span>. I craft immersive digital experiences through <span class="text-purple-400">Code</span>, <span class="text-purple-400">AI Artistry</span>, and Motion Design.
-                    </p>
-                    <div class="flex gap-4">
-                        <button onclick="switchTab('portfolio')" class="bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-xl font-bold transition flex items-center gap-2">
-                            View Work <i data-lucide="arrow-right" class="w-4"></i>
-                        </button>
+        <!-- PAGE: HOME -->
+        <section id="home" class="page active px-6 md:px-20 animate-fade">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center min-h-[70vh]">
+                <div class="order-2 md:order-1">
+                    <span class="mono text-purple-500 text-sm mb-4 block tracking-tighter">@Reizen_Online</span>
+                    <h1 class="text-5xl md:text-8xl font-black mb-6 leading-none">I CREATE<br><span class="text-purple-500">DIGITAL</span> ART.</h1>
+                    <p class="text-gray-400 text-lg mb-8 max-w-md">Rohit, the mind behind DarkWing Studio. Merging Web Development with Dark Anime Aesthetics.</p>
+                    
+                    <!-- Social Icons (Functional) -->
+                    <div class="flex gap-6 text-2xl mb-10">
+                        <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/darkwing.in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="relative group hidden md:block">
-                    <div class="absolute -inset-10 bg-purple-600/10 blur-[100px] rounded-full group-hover:bg-purple-600/20 transition"></div>
-                    <div class="glass p-4 rounded-[2rem] border-white/10 overflow-hidden shadow-2xl">
-                        <!-- Replace with your actual character PFP -->
-                        <img src="https://i.imgur.com/your-pfp-link.jpg" class="rounded-[1.5rem] grayscale group-hover:grayscale-0 transition duration-700">
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-purple-600/20 blur-[80px] rounded-full"></div>
+                        <!-- Replace with your PFP -->
+                        <img src="https://i.ibb.co/L9H8S8q/pfp.jpg" class="relative z-10 w-full h-full object-cover rounded-3xl border border-white/10 purple-glow">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PORTFOLIO SECTION -->
-        <section id="portfolio" class="p-8 md:p-20">
-            <div class="flex justify-between items-end mb-12">
-                <h2 class="text-5xl font-extrabold">Selected <span class="text-purple-500">Works</span></h2>
-                <p class="text-gray-500 mono text-xs">Based on 2M+ Monthly Views</p>
+        <!-- PAGE: PORTFOLIO -->
+        <section id="portfolio" class="page px-6 md:px-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-black mb-10">Visual <span class="text-purple-500">Vault</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="md:col-span-2 aspect-video bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 relative group">
+                        <img src="https://via.placeholder.com/800x450/111/444" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute bottom-6 left-6"><h3 class="font-bold text-xl">Web UI Design</h3></div>
+                    </div>
+                    <div class="aspect-square bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 relative group">
+                        <img src="https://via.placeholder.com/400x400/111/444" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute bottom-6 left-6"><h3 class="font-bold">Anime Edits</h3></div>
+                    </div>
+                    <div class="aspect-square bg-neutral-900 rounded-2xl overflow-hidden border border-white/5 relative group">
+                        <img src="https://via.placeholder.com/400x400/111/444" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute bottom-6 left-6"><h3 class="font-bold text-sm">Character Design</h3></div>
+                    </div>
+                    <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="md:col-span-2 bg-purple-600/10 border border-dashed border-purple-500/40 rounded-2xl flex flex-col items-center justify-center py-10 hover:bg-purple-600/20 transition">
+                        <i class="fa-brands fa-pinterest text-4xl mb-2 text-purple-500"></i>
+                        <span class="font-bold text-xl">2M+ Monthly Views</span>
+                        <span class="text-xs text-gray-500 uppercase tracking-widest">Visit Pinterest</span>
+                    </a>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Bento Card 1 -->
-                <div class="md:col-span-2 md:row-span-2 h-[450px] glass rounded-3xl purple-glow overflow-hidden relative group p-6">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
-                    <img src="https://via.placeholder.com/800x600/111/444?text=AI+Art+Feature" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-60">
-                    <div class="relative z-20 h-full flex flex-col justify-end">
-                        <span class="text-purple-400 mono text-xs uppercase mb-2">Digital Art</span>
-                        <h3 class="text-2xl font-bold">The Ethereal Ninja Series</h3>
+        </section>
+
+        <!-- PAGE: SERVICES -->
+        <section id="services" class="page px-6 md:px-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-black mb-10">Tech <span class="text-purple-500">Stack</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-8 bg-neutral-900/50 rounded-3xl border border-white/5">
+                        <i class="fa-solid fa-code text-purple-500 text-3xl mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4">Web Development</h3>
+                        <p class="text-gray-400">Custom portfolios, landing pages, and web apps built with HTML, CSS, JavaScript, and Tailwind CSS.</p>
                     </div>
-                </div>
-                <!-- Bento Card 2 -->
-                <div class="h-[215px] glass rounded-3xl purple-glow p-6 flex flex-col justify-between">
-                    <i data-lucide="code" class="text-purple-500 w-8 h-8"></i>
-                    <div>
-                        <h3 class="font-bold">Web Development</h3>
-                        <p class="text-xs text-gray-500">Next.js & Tailwind Portfolios</p>
-                    </div>
-                </div>
-                <!-- Bento Card 3 -->
-                <div class="h-[215px] glass rounded-3xl purple-glow p-6 flex flex-col justify-between border-dashed border-2">
-                    <i data-lucide="clapperboard" class="text-purple-500 w-8 h-8"></i>
-                    <div>
-                        <h3 class="font-bold">Anime Edits</h3>
-                        <p class="text-xs text-gray-500">After Effects Motion Graphics</p>
+                    <div class="p-8 bg-neutral-900/50 rounded-3xl border border-white/5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-purple-500 text-3xl mb-6"></i>
+                        <h3 class="text-2xl font-bold mb-4">AI Art Creator</h3>
+                        <p class="text-gray-400">High-end dark fantasy and anime character designs using advanced AI workflows.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES SECTION -->
-        <section id="services" class="p-8 md:p-20">
-            <h2 class="text-5xl font-extrabold mb-12">My <span class="text-purple-500">Stack</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="glass p-8 rounded-2xl purple-glow transition">
-                    <div class="bg-purple-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="layout" class="text-purple-500"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">Web Design</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Minimal, dark-themed UI designs tailored for creators and brands.</p>
-                </div>
-                <div class="glass p-8 rounded-2xl purple-glow transition">
-                    <div class="bg-purple-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="terminal" class="text-purple-500"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">Development</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Pixel-perfect frontend development with clean, scalable code.</p>
-                </div>
-                <div class="glass p-8 rounded-2xl purple-glow transition">
-                    <div class="bg-purple-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="wand-2" class="text-purple-500"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">AI Artistry</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Custom AI workflows for high-end character and concept art.</p>
-                </div>
-                <div class="glass p-8 rounded-2xl purple-glow transition">
-                    <div class="bg-purple-500/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                        <i data-lucide="play" class="text-purple-500"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">Video Edits</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed">Dynamic short-form content for Instagram and YouTube.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="p-8 md:p-20 text-center">
-            <div class="max-w-2xl mx-auto py-20">
-                <i data-lucide="mail" class="w-12 h-12 text-purple-500 mx-auto mb-8"></i>
-                <h2 class="text-5xl font-extrabold mb-6">Start a Project</h2>
-                <p class="text-gray-400 mb-10">Have an idea? Let's build it together. Send a direct transmission to my inbox.</p>
-                <a href="mailto:darkwingdomain@gmail.com" class="text-2xl font-black text-purple-400 border-b-2 border-purple-900 hover:border-purple-500 transition duration-300">
-                    darkwingdomain@gmail.com
+        <!-- PAGE: CONTACT -->
+        <section id="contact" class="page px-6 md:px-20">
+            <div class="max-w-3xl mx-auto text-center py-10">
+                <h2 class="text-5xl font-black mb-6">Let's <span class="text-purple-500">Build.</span></h2>
+                <p class="text-gray-400 mb-10 leading-relaxed text-lg">Whether you need a custom website, anime-style branding, or a creative partnership, my inbox is always open.</p>
+                
+                <a href="mailto:darkwingdomain@gmail.com" class="block bg-white text-black py-5 rounded-2xl font-black text-xl hover:bg-purple-500 hover:text-white transition mb-4">
+                    EMAIL ME
                 </a>
+                
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <a href="https://patreon.com/Darkwingdomain" target="_blank" class="bg-neutral-900 p-4 rounded-xl border border-white/5 hover:border-purple-500/50 transition">
+                        <i class="fa-brands fa-patreon mb-2"></i><br>Patreon
+                    </a>
+                    <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="bg-neutral-900 p-4 rounded-xl border border-white/5 hover:border-purple-500/50 transition">
+                        <i class="fa-solid fa-mug-hot mb-2"></i><br>Ko-fi
+                    </a>
+                </div>
             </div>
         </section>
 
     </main>
 
     <script>
-        // Initialize Icons
-        lucide.createIcons();
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // Show target page
+            document.getElementById(pageId).classList.add('active');
 
-        // Smooth Tab Switching Logic
-        function switchTab(tabId) {
-            // Remove active classes
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('header nav button').forEach(b => b.classList.remove('nav-active'));
+            // Update Desktop Nav UI
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('text-purple-500');
+            });
             
-            // Activate target
-            const target = document.getElementById(tabId);
-            target.classList.add('active');
-            document.getElementById('tab-' + tabId).classList.add('nav-active');
+            // Update Mobile Nav UI
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Add active to selected mobile item (if mobile)
+            event.currentTarget.classList.add('active');
 
-            // Reset scroll position
-            document.querySelector('main').scrollTo({ top: 0, behavior: 'smooth' });
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
-                  </html>
+</html>
