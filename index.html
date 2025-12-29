@@ -192,4 +192,200 @@
         }
     </script>
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkWing Studio | Reizen</title>
+    
+    <!-- Tailwind CSS for modern layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Modern Sans-Serif Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --purple: #a855f7; --dark: #050505; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: white; scroll-behavior: smooth; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Glassmorphism & Glow */
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .purple-glow:hover { box-shadow: 0 0 40px rgba(168, 85, 247, 0.15); border-color: var(--purple); }
+
+        /* Navigation logic */
+        .page { display: none; animation: fadeIn 0.4s ease-out forwards; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        .nav-link.active { color: var(--purple); font-weight: 800; border-bottom: 2px solid var(--purple); }
+        .mobile-active { color: var(--purple); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- DESKTOP TOP NAV -->
+    <nav class="hidden md:flex fixed top-0 w-full z-50 glass px-16 py-6 justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+                <i class="fa-solid fa-feather-pointed"></i>
+            </div>
+            <span class="text-xl font-extrabold tracking-tighter uppercase">DarkWing <span class="text-purple-500 font-normal">Studio</span></span>
+        </div>
+        <div class="flex gap-10 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <button onclick="showPage('home')" class="nav-link active">Home</button>
+            <button onclick="showPage('portfolio')" class="nav-link">Portfolio</button>
+            <button onclick="showPage('services')" class="nav-link">Services</button>
+            <button onclick="showPage('contact')" class="nav-link">Connect</button>
+        </div>
+    </nav>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="md:hidden fixed bottom-0 w-full z-50 bg-black/90 backdrop-blur-2xl border-t border-white/5 px-8 py-5 flex justify-between items-center text-gray-400">
+        <button onclick="showPage('home')" class="mobile-nav active flex flex-col items-center gap-1"><i class="fa-solid fa-house"></i><span class="text-[9px] font-bold">HOME</span></button>
+        <button onclick="showPage('portfolio')" class="mobile-nav flex flex-col items-center gap-1"><i class="fa-solid fa-layer-group"></i><span class="text-[9px] font-bold">WORK</span></button>
+        <button onclick="showPage('services')" class="mobile-nav flex flex-col items-center gap-1"><i class="fa-solid fa-code"></i><span class="text-[9px] font-bold">TECH</span></button>
+        <button onclick="showPage('contact')" class="mobile-nav flex flex-col items-center gap-1"><i class="fa-solid fa-paper-plane"></i><span class="text-[9px] font-bold">CONTACT</span></button>
+    </nav>
+
+    <!-- CONTENT WRAPPER -->
+    <main class="flex-1 mt-6 md:mt-32 pb-24 lg:pb-0">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page active px-6 md:px-24">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
+                <div class="order-2 lg:order-1 text-center lg:text-left">
+                    <span class="mono text-purple-500 text-xs uppercase mb-4 block tracking-widest">Digital Architect // Reizen</span>
+                    <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tighter">DESIGNING <br>IN THE <span class="text-purple-500 italic">DARK.</span></h1>
+                    <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-12 mx-auto lg:mx-0">Rohit, founder of DarkWing Studio. I blend clean code with dark anime aesthetics to create immersive web experiences.</p>
+                    
+                    <div class="flex justify-center lg:justify-start gap-8 text-2xl mb-12">
+                        <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/darkwing.in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 flex justify-center">
+                    <div class="relative w-64 md:w-full max-w-sm">
+                        <div class="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full"></div>
+                        <!-- Place your pfp image here -->
+                        <img src="https://i.ibb.co/L9H8S8q/pfp.jpg" alt="Reizen" class="relative z-10 w-full rounded-[2.5rem] border border-white/10 shadow-2xl purple-glow">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO PAGE (Bento Layout) -->
+        <section id="portfolio" class="page px-6 md:px-24">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-black mb-12 tracking-tighter">SELECTED WORKS</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Bento Box: Coding (Large) -->
+                    <div class="md:col-span-2 h-72 md:h-96 glass rounded-[2rem] p-10 flex flex-col justify-end purple-glow group relative overflow-hidden">
+                        <i class="fa-solid fa-code text-4xl text-purple-500 absolute top-10 right-10 opacity-30 group-hover:opacity-100 transition"></i>
+                        <h3 class="text-3xl font-bold mb-2">Web Dashboard UI</h3>
+                        <p class="text-gray-500 text-sm mono">Next.js // Tailwind // Framer Motion</p>
+                    </div>
+                    <!-- Bento Box: Art -->
+                    <div class="h-72 md:h-96 glass rounded-[2rem] p-10 flex flex-col justify-end purple-glow group bg-purple-600/5 border-dashed border-2 border-purple-500/20">
+                        <i class="fa-solid fa-wand-magic-sparkles text-3xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold mb-2">AI Character Design</h3>
+                        <p class="text-gray-500 text-xs uppercase tracking-widest">Concept Art Vault</p>
+                    </div>
+                    <!-- Bento Box: Video -->
+                    <div class="h-72 glass rounded-[2rem] p-10 flex flex-col justify-end purple-glow">
+                        <h3 class="text-xl font-bold mb-2">Anime Edits</h3>
+                        <p class="text-gray-500 text-xs">Dynamic Motion Graphics</p>
+                    </div>
+                    <!-- Bento Box: Pinterest Redirect -->
+                    <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="md:col-span-2 h-72 glass rounded-[2rem] flex items-center justify-between px-12 purple-glow hover:bg-purple-600/10 transition">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Pinterest Gallery</h3>
+                            <p class="text-gray-500 text-sm">Explore the full visual archive.</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES PAGE -->
+        <section id="services" class="page px-6 md:px-24">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-black mb-16 tracking-tighter text-center md:text-left">TECH STACK</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-10 glass rounded-[2.5rem] purple-glow">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 text-2xl mb-8"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">Development</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Building clean, responsive, and high-performance websites from the ground up.</p>
+                    </div>
+                    <div class="p-10 glass rounded-[2.5rem] purple-glow">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 text-2xl mb-8"><i class="fa-solid fa-palette"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">AI Artistry</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Crafting high-end character designs and aesthetic assets for digital brands.</p>
+                    </div>
+                    <div class="p-10 glass rounded-[2.5rem] purple-glow">
+                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 text-2xl mb-8"><i class="fa-solid fa-film"></i></div>
+                        <h3 class="text-2xl font-bold mb-4">Editing</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Motion design and video editing focused on dark-themed anime aesthetics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact" class="page px-6 md:px-24">
+            <div class="max-w-4xl mx-auto glass rounded-[3.5rem] p-12 md:p-24 text-center">
+                <h2 class="text-5xl font-black mb-8 tracking-tighter">SECURE TRANSMISSION</h2>
+                <p class="text-gray-500 mb-12">Reach out for collaborations, project inquiries, or support.</p>
+                <a href="mailto:darkwingdomain@gmail.com" class="text-2xl md:text-4xl font-bold hover:text-purple-500 transition border-b border-white/10 pb-2">darkwingdomain@gmail.com</a>
+                
+                <div class="mt-16 flex justify-center gap-6">
+                    <a href="https://patreon.com/Darkwingdomain" target="_blank" class="px-10 py-4 glass rounded-full font-bold text-xs uppercase hover:bg-purple-600 transition">Patreon</a>
+                    <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="px-10 py-4 glass rounded-full font-bold text-xs uppercase hover:bg-purple-600 transition">Ko-fi</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 md:px-24 border-t border-white/5 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.3em]">DarkWing Studio // By Rohit</p>
+        <div class="flex gap-10 text-[10px] text-gray-500 uppercase font-bold tracking-widest">
+            <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500">GitHub</a>
+            <a href="https://patreon.com/Darkwingdomain" target="_blank" class="hover:text-purple-500">Patreon</a>
+            <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-purple-500">YouTube</a>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            // Show target
+            document.getElementById(pageId).classList.add('active');
+
+            // Update Nav Links UI (Desktop)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if(link.innerText.toLowerCase() === (pageId === 'home' ? 'home' : (pageId === 'portfolio' ? 'portfolio' : (pageId === 'services' ? 'services' : 'connect')))) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Update Nav Icons UI (Mobile)
+            document.querySelectorAll('.mobile-nav').forEach(icon => {
+                icon.classList.remove('text-purple-500');
+                if(icon.getAttribute('onclick').includes(pageId)) icon.classList.add('text-purple-500');
+            });
+
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
 </html>
