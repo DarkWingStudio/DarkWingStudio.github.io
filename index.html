@@ -5,192 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DarkWing Studio | Reizen (Rohit)</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Icons (Font Awesome 6) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Premium Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
-        :root { --purple: #a855f7; --dark: #050505; --card: #0f0f12; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: white; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
+        :root { --purple: #a855f7; --dark: #050505; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: white; -webkit-font-smoothing: antialiased; }
         
-        /* Navigation Styles */
         .nav-link.active { color: var(--purple); font-weight: 800; border-bottom: 2px solid var(--purple); }
         .mobile-item.active { color: var(--purple); }
 
-        /* Page Transitions */
         .page { display: none; animation: fadeIn 0.4s ease-out forwards; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Glassmorphism & UI Detail */
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .purple-glow:hover { border-color: var(--purple); box-shadow: 0 0 50px rgba(168, 85, 247, 0.15); }
         
-        /* Hide scrollbar but keep functionality */
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 10px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <!-- DESKTOP TOP NAV -->
-    <nav class="hidden lg:flex fixed top-0 w-full z-50 glass px-16 py-5 justify-between items-center">
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex fixed top-0 w-full z-50 glass px-12 py-5 justify-between items-center">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-                <i class="fa-solid fa-feather-pointed text-white"></i>
-            </div>
-            <span class="text-xl font-extrabold tracking-tighter uppercase">DarkWing <span class="text-purple-500 font-normal">Studio</span></span>
+            <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center shadow-lg"><i class="fa-solid fa-feather-pointed"></i></div>
+            <span class="text-xl font-extrabold uppercase tracking-tighter">DarkWing <span class="text-purple-500 font-normal">Studio</span></span>
         </div>
-        <div class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em]">
+        <div class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em]">
             <button onclick="showPage('home')" class="nav-link active">Home</button>
             <button onclick="showPage('portfolio')" class="nav-link">Portfolio</button>
             <button onclick="showPage('services')" class="nav-link">Expertise</button>
             <button onclick="showPage('contact')" class="nav-link">Connect</button>
         </div>
-        <a href="https://patreon.com/Darkwingdomain" target="_blank" class="bg-purple-600 px-6 py-2 rounded-full text-[10px] font-black hover:bg-purple-700 transition uppercase tracking-widest">Support</a>
+        <a href="https://github.com/DarkWingStudio" target="_blank" class="bg-white/10 px-6 py-2 rounded-full text-[10px] font-black hover:bg-white/20 transition uppercase">GitHub</a>
     </nav>
 
-    <!-- MOBILE BOTTOM NAV -->
+    <!-- MOBILE NAV -->
     <nav class="lg:hidden fixed bottom-0 w-full z-50 bg-black/90 backdrop-blur-xl border-t border-white/5 px-8 py-4 flex justify-between items-center text-gray-400">
-        <button onclick="showPage('home')" class="mobile-item active flex flex-col items-center gap-1"><i class="fa-solid fa-house text-lg"></i><span class="text-[9px] font-bold">HOME</span></button>
-        <button onclick="showPage('portfolio')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-layer-group text-lg"></i><span class="text-[9px] font-bold">WORK</span></button>
-        <button onclick="showPage('services')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-wand-magic-sparkles text-lg"></i><span class="text-[9px] font-bold">TECH</span></button>
-        <button onclick="showPage('contact')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-paper-plane text-lg"></i><span class="text-[9px] font-bold">CONTACT</span></button>
+        <button onclick="showPage('home')" class="mobile-item active flex flex-col items-center gap-1"><i class="fa-solid fa-house"></i><span class="text-[9px] font-bold">HOME</span></button>
+        <button onclick="showPage('portfolio')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-layer-group"></i><span class="text-[9px] font-bold">WORK</span></button>
+        <button onclick="showPage('services')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="text-[9px] font-bold">TECH</span></button>
+        <button onclick="showPage('contact')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-paper-plane"></i><span class="text-[9px] font-bold">CONTACT</span></button>
     </nav>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-1 mt-10 lg:mt-32 pb-24 lg:pb-0">
+    <main class="flex-1 mt-10 lg:mt-32 pb-24 lg:pb-12">
         
         <!-- HOME PAGE -->
-        <section id="home" class="page active px-6 lg:px-24">
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center min-h-[75vh]">
+        <section id="home" class="page active px-6 lg:px-0">
+            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
                 <div class="order-2 lg:order-1 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 text-purple-400 mono text-[10px] uppercase mb-6 tracking-[0.3em]">
-                        <span class="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse"></span> Mode: Creative Architect
-                    </div>
-                    <h1 class="text-6xl lg:text-9xl font-extrabold leading-none mb-8 tracking-tighter uppercase">REIZEN <br><span class="text-purple-500 italic">ROHIT.</span></h1>
-                    <p class="text-gray-400 text-lg lg:text-xl max-w-lg mb-12 mx-auto lg:mx-0">Merging clean code with dark aesthetics. Lead creator at <span class="text-white font-bold">DarkWing Studio</span>.</p>
-                    
-                    <div class="flex justify-center lg:justify-start gap-8 text-2xl mb-12 opacity-80">
+                    <h1 class="text-6xl lg:text-9xl font-extrabold leading-none mb-6 tracking-tighter uppercase">REIZEN <br><span class="text-purple-500 italic">ROHIT.</span></h1>
+                    <p class="text-gray-400 text-lg lg:text-xl max-w-lg mb-10 mx-auto lg:mx-0 font-medium">Merging code with dark aesthetics. Lead creator at <span class="text-white">DarkWing Studio</span>.</p>
+                    <div class="flex justify-center lg:justify-start gap-8 text-2xl opacity-60">
                         <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-github"></i></a>
                         <a href="https://www.instagram.com/darkwing.in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-pinterest"></i></a>
                     </div>
                 </div>
                 <div class="order-1 lg:order-2 flex justify-center">
-                    <div class="relative w-64 lg:w-full max-w-sm">
-                        <div class="absolute inset-0 bg-purple-600/10 blur-[100px] rounded-full"></div>
-                        <img src="https://i.ibb.co/L9H8S8q/pfp.jpg" alt="Reizen" class="relative z-10 w-full rounded-[3rem] border border-white/5 purple-glow transition duration-500 shadow-2xl">
-                    </div>
+                    <img src="https://i.ibb.co/L9H8S8q/pfp.jpg" class="w-64 lg:w-96 rounded-[3rem] border border-white/5 shadow-2xl purple-glow transition duration-500">
                 </div>
             </div>
         </section>
 
-        <!-- PORTFOLIO PAGE (Bento Grid) -->
-        <section id="portfolio" class="page px-6 lg:px-24">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
-                    <h2 class="text-5xl font-black uppercase tracking-tighter">Digital <span class="text-purple-500">Archive</span></h2>
+        <!-- PORTFOLIO PAGE -->
+        <section id="portfolio" class="page px-6 lg:px-0">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col lg:flex-row justify-between items-end mb-12 gap-8">
+                    <h2 class="text-5xl font-black uppercase tracking-tighter">The <span class="text-purple-500">Archive</span></h2>
                     <div class="flex gap-2 p-1 glass rounded-2xl">
                         <button onclick="filterWork('all')" class="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-purple-600 text-white transition filter-btn active">All</button>
                         <button onclick="filterWork('code')" class="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition filter-btn">Coding</button>
                         <button onclick="filterWork('art')" class="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition filter-btn">AI Art</button>
                     </div>
                 </div>
-
                 <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Bento 1: Large Feature -->
-                    <div class="work-item code md:col-span-2 h-96 glass rounded-[2.5rem] p-10 flex flex-col justify-end purple-glow group relative overflow-hidden">
-                        <i class="fa-solid fa-code text-5xl text-purple-600 absolute top-10 right-10 opacity-20 group-hover:opacity-100 transition duration-500"></i>
-                        <h3 class="text-3xl font-bold uppercase mb-2">Web OS Architecture</h3>
-                        <p class="text-gray-500 text-xs mono uppercase tracking-widest">Protocol: React // Tailwind // Motion</p>
+                    <div class="work-item code md:col-span-2 h-80 glass rounded-[2rem] p-10 flex flex-col justify-end purple-glow group relative overflow-hidden">
+                        <i class="fa-solid fa-code text-4xl text-purple-600 absolute top-10 right-10 opacity-20"></i>
+                        <h3 class="text-3xl font-bold uppercase">Web Dashboard UI</h3>
                     </div>
-                    <!-- Bento 2: Vertical Art -->
-                    <div class="work-item art h-96 glass rounded-[2.5rem] overflow-hidden group relative purple-glow">
-                        <img src="https://via.placeholder.com/400x600/111/444?text=AI+Artwork" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
-                        <div class="absolute bottom-8 left-8">
-                            <h3 class="text-xl font-bold uppercase">Shadow Souls</h3>
-                            <p class="text-[10px] text-purple-400 mono">AI Generation</p>
-                        </div>
+                    <div class="work-item art h-80 glass rounded-[2rem] overflow-hidden group relative purple-glow">
+                        <img src="https://via.placeholder.com/400x600/111/444?text=AI+Art" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
                     </div>
-                    <!-- Bento 3: Pinterest Link -->
-                    <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="work-item art md:col-span-2 h-64 glass rounded-[2.5rem] flex items-center justify-between px-12 purple-glow hover:bg-purple-600/5 transition">
-                        <div>
-                            <h3 class="text-2xl font-bold uppercase mb-2">Pinterest Vault</h3>
-                            <p class="text-gray-500 text-sm">Access 100+ High-Resolution Dark Aesthetic Visuals.</p>
-                        </div>
+                    <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="work-item art md:col-span-3 h-48 glass rounded-[2rem] flex items-center justify-between px-12 hover:bg-purple-600/5 transition">
+                        <h3 class="text-2xl font-bold uppercase">View Pinterest Gallery</h3>
                         <i class="fa-brands fa-pinterest text-4xl text-purple-500"></i>
                     </a>
-                    <!-- Bento 4: Small Info -->
-                    <div class="h-64 glass rounded-[2.5rem] p-10 flex flex-col justify-center text-center">
-                        <i class="fa-solid fa-clapperboard text-2xl text-purple-600 mb-4"></i>
-                        <h3 class="font-bold uppercase text-sm">Anime Motion</h3>
-                        <p class="text-[10px] text-gray-500 mt-2">Dynamic Short-form Content</p>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!-- SERVICES PAGE -->
-        <section id="services" class="page px-6 lg:px-24">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-5xl font-black uppercase mb-16 tracking-tighter">The <span class="text-purple-500">Expertise</span></h2>
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <div class="p-12 glass rounded-[3rem] purple-glow transition">
-                        <i class="fa-solid fa-terminal text-4xl text-purple-500 mb-8"></i>
-                        <h3 class="text-2xl font-bold uppercase mb-4 leading-none">Development</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Building pixel-perfect, high-performance web applications with a focus on dark mode aesthetics.</p>
+        <section id="services" class="page px-6 lg:px-0">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-black uppercase mb-12 tracking-tighter">The <span class="text-purple-500">Stack</span></h2>
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="p-10 glass rounded-[2.5rem] purple-glow">
+                        <i class="fa-solid fa-terminal text-4xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold uppercase mb-2">Development</h3>
+                        <p class="text-gray-400 text-sm">Responsive coding with a dark-mode first philosophy.</p>
                     </div>
-                    <div class="p-12 glass rounded-[3rem] purple-glow transition">
-                        <i class="fa-solid fa-brain text-4xl text-purple-500 mb-8"></i>
-                        <h3 class="text-2xl font-bold uppercase mb-4 leading-none">AI Creation</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Leveraging advanced AI tools to craft unique character designs and atmospheric environmental art.</p>
+                    <div class="p-10 glass rounded-[2.5rem] purple-glow">
+                        <i class="fa-solid fa-brain text-4xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold uppercase mb-2">AI Artistry</h3>
+                        <p class="text-gray-400 text-sm">Custom character designs and branding assets.</p>
                     </div>
-                    <div class="p-12 glass rounded-[3rem] purple-glow transition">
-                        <i class="fa-solid fa-bolt text-4xl text-purple-500 mb-8"></i>
-                        <h3 class="text-2xl font-bold uppercase mb-4 leading-none">Branding</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Developing consistent visual identities for creators, blending gaming culture with premium studio design.</p>
+                    <div class="p-10 glass rounded-[2.5rem] purple-glow">
+                        <i class="fa-solid fa-bolt text-4xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold uppercase mb-2">Motion</h3>
+                        <p class="text-gray-400 text-sm">Dynamic anime-style edits and motion graphics.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PAGE: CONTACT (Simplified) -->
-        <section id="contact" class="page px-6 md:px-24">
-            <div class="max-w-4xl mx-auto text-center py-20 lg:py-32">
-                <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase tracking-tighter">Let's <span class="text-purple-500">Build.</span></h2>
-                <p class="text-gray-400 mb-12 leading-relaxed text-lg md:text-xl max-w-2xl mx-auto font-medium">Whether you need a custom website, anime-style branding, or a creative partnership, my inbox is always open.</p>
+        <!-- CONTACT PAGE (Grouped Layout) -->
+        <section id="contact" class="page px-6 lg:px-0">
+            <div class="max-w-4xl mx-auto text-center py-12">
+                <h2 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter leading-none">Let's <span class="text-purple-500 italic">Build.</span></h2>
+                <p class="text-gray-400 mb-12 text-lg max-w-2xl mx-auto">Open for partnerships, branding, and web projects.</p>
                 
-                <!-- Main Email Button -->
-                <a href="mailto:darkwingdomain@gmail.com" class="inline-block bg-white text-black px-12 py-6 rounded-2xl font-black text-xl md:text-2xl uppercase tracking-tighter hover:bg-purple-500 hover:text-white transition shadow-xl mb-12">
+                <a href="mailto:darkwingdomain@gmail.com" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl md:text-2xl uppercase hover:bg-purple-500 hover:text-white transition mb-20 shadow-xl">
                     EMAIL ME
                 </a>
 
-                <!-- Quick Social Grid for Contact Page -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                    <a href="https://patreon.com/Darkwingdomain" target="_blank" class="glass py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-purple-500/50 transition">Patreon</a>
-                    <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="glass py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-purple-500/50 transition">Ko-fi</a>
-                    <a href="https://github.com/DarkWingStudio" target="_blank" class="glass py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-purple-500/50 transition">GitHub</a>
-                    <a href="https://www.instagram.com/darkwing.in" target="_blank" class="glass py-4 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:border-purple-500/50 transition">Instagram</a>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- GROUP 1: SUPPORT -->
+                    <div class="space-y-6">
+                        <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Support the Studio</h4>
+                        <div class="flex gap-4">
+                            <a href="https://patreon.com/Darkwingdomain" target="_blank" class="flex-1 glass py-6 rounded-2xl flex flex-col items-center gap-3 hover:border-purple-500 transition group">
+                                <i class="fa-brands fa-patreon text-2xl group-hover:text-purple-500"></i>
+                                <span class="text-[10px] font-bold">PATREON</span>
+                            </a>
+                            <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="flex-1 glass py-6 rounded-2xl flex flex-col items-center gap-3 hover:border-purple-500 transition group">
+                                <i class="fa-solid fa-mug-hot text-2xl group-hover:text-purple-500"></i>
+                                <span class="text-[10px] font-bold">KO-FI</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GROUP 2: SOCIALS -->
+                    <div class="space-y-6">
+                        <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Social Presence</h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.instagram.com/darkwing.in" target="_blank" class="flex-1 glass py-6 rounded-2xl flex flex-col items-center gap-2 hover:border-purple-500 transition">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                                <span class="text-[9px] font-bold tracking-widest uppercase">Insta</span>
+                            </a>
+                            <a href="https://youtube.com/@DarkWing-in" target="_blank" class="flex-1 glass py-6 rounded-2xl flex flex-col items-center gap-2 hover:border-purple-500 transition">
+                                <i class="fa-brands fa-youtube text-xl"></i>
+                                <span class="text-[9px] font-bold tracking-widest uppercase">YouTube</span>
+                            </a>
+                            <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="flex-1 glass py-6 rounded-2xl flex flex-col items-center gap-2 hover:border-purple-500 transition">
+                                <i class="fa-brands fa-pinterest text-xl"></i>
+                                <span class="text-[9px] font-bold tracking-widest uppercase">Pins</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-black py-12 px-6 lg:px-24 border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8">
-            <div class="text-center lg:text-left">
-                <p class="text-xs font-bold uppercase tracking-[0.3em] text-white mb-2">DarkWing Studio</p>
-                <p class="text-[10px] text-gray-600 mono uppercase tracking-widest">Hand-coded by Rohit // Reizen © 2025</p>
-            </div>
-            <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest text-gray-500">
-                <a href="#" onclick="showPage('portfolio')" class="hover:text-purple-500 transition">Works</a>
+    <footer class="py-12 border-t border-white/5 text-center px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.3em]">DarkWing Studio // Reizen Rohit © 2025</p>
+            <div class="flex gap-8 text-[9px] font-black uppercase tracking-widest text-gray-500">
                 <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition">GitHub</a>
                 <a href="mailto:darkwingdomain@gmail.com" class="hover:text-purple-500 transition">Email</a>
             </div>
@@ -198,19 +184,15 @@
     </footer>
 
     <script>
-        // NAVIGATION LOGIC
         function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
 
-            // Header Nav active state
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
-                const pageMap = { home: 'home', portfolio: 'portfolio', services: 'expertise', contact: 'connect' };
-                if(link.innerText.toLowerCase() === pageMap[pageId]) link.classList.add('active');
+                if(link.innerText.toLowerCase() === (pageId === 'home' ? 'home' : (pageId === 'portfolio' ? 'portfolio' : (pageId === 'services' ? 'expertise' : 'connect')))) link.classList.add('active');
             });
 
-            // Mobile Nav active state
             document.querySelectorAll('.mobile-item').forEach(item => {
                 item.classList.remove('active');
                 if(item.getAttribute('onclick').includes(pageId)) item.classList.add('active');
@@ -219,21 +201,12 @@
             window.scrollTo(0, 0);
         }
 
-        // PORTFOLIO FILTER LOGIC
         function filterWork(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('bg-purple-600', 'text-white', 'active');
-                btn.classList.add('hover:bg-white/5');
-            });
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('bg-purple-600', 'text-white', 'active'));
             event.currentTarget.classList.add('bg-purple-600', 'text-white', 'active');
-            event.currentTarget.classList.remove('hover:bg-white/5');
-
             document.querySelectorAll('.work-item').forEach(item => {
-                if(category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                if(category === 'all' || item.classList.contains(category)) item.style.display = 'block';
+                else item.style.display = 'none';
             });
         }
     </script>
