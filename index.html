@@ -7,197 +7,158 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <style>
         :root { --purple: #a855f7; --dark: #050505; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--dark); color: white; -webkit-font-smoothing: antialiased; }
         
-        /* Navigation Switching Logic */
-        .nav-link.active { color: var(--purple); font-weight: 800; }
+        .nav-link.active { color: var(--purple); font-weight: 800; border-bottom: 2px solid var(--purple); }
         .mobile-item.active { color: var(--purple); }
 
-        /* Smooth Page Transitions */
-        .page { display: none; animation: fadeIn 0.5s ease-out forwards; }
+        .page { display: none; animation: fadeIn 0.4s ease-out forwards; }
         .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Professional Details */
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .purple-glow { box-shadow: 0 0 60px rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); }
-        .hero-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%); z-index: -1; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .purple-glow:hover { border-color: var(--purple); box-shadow: 0 0 50px rgba(168, 85, 247, 0.15); }
         
-        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 10px; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-purple-500/30">
+<body class="min-h-screen flex flex-col">
 
-    <!-- DESKTOP TOP NAVIGATION (Hidden on Mobile) -->
-    <nav class="hidden lg:flex fixed top-0 w-full z-50 glass px-24 py-6 justify-between items-center">
-        <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20">
-                <i class="fa-solid fa-feather-pointed text-xl"></i>
-            </div>
-            <span class="text-2xl font-black uppercase tracking-tighter">DarkWing <span class="text-purple-500 font-normal">Studio</span></span>
+    <!-- DESKTOP NAV -->
+    <nav class="hidden lg:flex fixed top-0 w-full z-50 glass px-12 py-5 justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-purple-600 rounded-xl flex items-center justify-center shadow-lg"><i class="fa-solid fa-feather-pointed"></i></div>
+            <span class="text-xl font-extrabold uppercase tracking-tighter">DarkWing <span class="text-purple-500 font-normal">Studio</span></span>
         </div>
-        <div class="flex gap-14 text-sm font-bold uppercase tracking-[0.3em]">
-            <button onclick="showPage('home')" class="nav-link active hover:text-purple-400 transition">Home</button>
-            <button onclick="showPage('portfolio')" class="nav-link hover:text-purple-400 transition">Portfolio</button>
-            <button onclick="showPage('services')" class="nav-link hover:text-purple-400 transition">Expertise</button>
-            <button onclick="showPage('contact')" class="nav-link hover:text-purple-400 transition">Connect</button>
+        <div class="flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <button onclick="showPage('home')" class="nav-link active">Home</button>
+            <button onclick="showPage('portfolio')" class="nav-link">Work</button>
+            <button onclick="showPage('services')" class="nav-link">Tech</button>
+            <button onclick="showPage('contact')" class="nav-link">Connect</button>
         </div>
-        <a href="mailto:darkwingdomain@gmail.com" class="bg-white text-black px-8 py-3 rounded-full text-xs font-black hover:bg-purple-600 hover:text-white transition uppercase tracking-widest">Email Me</a>
+        <a href="https://patreon.com/Darkwingdomain" target="_blank" class="bg-purple-600 px-6 py-2 rounded-full text-[10px] font-black hover:bg-purple-700 transition uppercase tracking-widest">Support</a>
     </nav>
 
-    <!-- MOBILE BOTTOM NAVIGATION (Hidden on Desktop) -->
-    <nav class="lg:hidden fixed bottom-0 w-full z-50 bg-black/90 backdrop-blur-2xl border-t border-white/5 px-8 py-5 flex justify-between items-center text-gray-400">
-        <button onclick="showPage('home')" class="mobile-item active flex flex-col items-center gap-1"><i class="fa-solid fa-house text-xl"></i><span class="text-[10px] font-bold">HOME</span></button>
-        <button onclick="showPage('portfolio')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-layer-group text-xl"></i><span class="text-[10px] font-bold">WORK</span></button>
-        <button onclick="showPage('services')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-wand-magic-sparkles text-xl"></i><span class="text-[10px] font-bold">TECH</span></button>
-        <button onclick="showPage('contact')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-paper-plane text-xl"></i><span class="text-[10px] font-bold">CONNECT</span></button>
+    <!-- MOBILE NAV -->
+    <nav class="lg:hidden fixed bottom-0 w-full z-50 bg-black/95 backdrop-blur-xl border-t border-white/5 px-8 py-4 flex justify-between items-center text-gray-400">
+        <button onclick="showPage('home')" class="mobile-item active flex flex-col items-center gap-1"><i class="fa-solid fa-house"></i><span class="text-[9px] font-bold">HOME</span></button>
+        <button onclick="showPage('portfolio')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-layer-group"></i><span class="text-[9px] font-bold">WORK</span></button>
+        <button onclick="showPage('services')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="text-[9px] font-bold">TECH</span></button>
+        <button onclick="showPage('contact')" class="mobile-item flex flex-col items-center gap-1"><i class="fa-solid fa-paper-plane"></i><span class="text-[9px] font-bold">CONNECT</span></button>
     </nav>
 
-    <!-- CONTENT WRAPPER -->
-    <main class="flex-1 mt-6 lg:mt-32 pb-32 lg:pb-16">
+    <main class="flex-1 lg:mt-32 pb-24 lg:pb-12">
         
         <!-- HOME PAGE -->
-        <section id="home" class="page active px-6 lg:px-24">
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center min-h-[75vh]">
-                <!-- Hero Text -->
-                <div class="order-2 lg:order-1 text-center lg:text-left pt-10 lg:pt-0">
-                    <div class="mono text-purple-500 text-sm lg:text-base uppercase tracking-[0.5em] mb-8 font-bold animate-pulse">
-                        > REIZEN_SYSTEM_READY
-                    </div>
-                    <h1 class="text-7xl lg:text-[10rem] font-black leading-[0.85] mb-10 tracking-tighter uppercase">
-                        REIZEN <br><span class="text-purple-500 italic">ROHIT.</span>
-                    </h1>
-                    <p class="text-gray-400 text-xl lg:text-3xl max-w-2xl mb-12 mx-auto lg:mx-0 font-medium leading-relaxed">
-                        Creative architect at <span class="text-white font-bold underline decoration-purple-500 underline-offset-8">DarkWing Studio</span>. Blending professional code with dark fantasy aesthetics.
-                    </p>
-                    
-                    <div class="flex justify-center lg:justify-start gap-10 text-3xl lg:text-4xl opacity-50 hover:opacity-100 transition duration-500">
-                        <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition scale-110"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.instagram.com/darkwing.in" target="_blank" class="hover:text-purple-500 transition scale-110"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-purple-500 transition scale-110"><i class="fa-brands fa-youtube"></i></a>
+        <section id="home" class="page active px-6">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16 pt-10 lg:pt-0 min-h-[70vh]">
+                <!-- PFP AREA -->
+                <div class="flex justify-center w-full lg:w-1/2">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-purple-600/20 blur-[80px] rounded-full group-hover:bg-purple-600/40 transition"></div>
+                        <img src="https://i.ibb.co/L9H8S8q/pfp.jpg" class="relative z-10 w-64 lg:w-[400px] rounded-[3rem] border border-white/10 shadow-2xl purple-glow transition duration-500">
                     </div>
                 </div>
-
-                <!-- Hero Image (PFP) - Large & Prominent on Desktop -->
-                <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
-                    <div class="hero-glow"></div>
-                    <div class="w-72 h-72 lg:w-[500px] lg:h-[500px] overflow-hidden rounded-[4rem] lg:rounded-[6rem] purple-glow">
-                        <img src="https://i.supaimg.com/12a5197b-3ba1-451e-9815-9891175688ac.png" alt="Reizen Rohit" class="w-full h-full object-cover transition-transform duration-1000 hover:scale-110">
+                <!-- TEXT AREA -->
+                <div class="text-center lg:text-left w-full lg:w-1/2">
+                    <p class="mono text-purple-500 text-[10px] lg:text-xs uppercase tracking-[0.4em] mb-4">> REIZEN_SYSTEM_READY</p>
+                    <h1 class="text-6xl lg:text-9xl font-black leading-[0.9] mb-6 tracking-tighter uppercase">REIZEN <br><span class="text-purple-500 italic">ROHIT.</span></h1>
+                    <p class="text-gray-400 text-sm lg:text-lg max-w-md mx-auto lg:mx-0 font-medium">Creative architect at <span class="text-white font-bold border-b border-purple-500">DarkWing Studio</span>. Blending professional code with dark fantasy aesthetics.</p>
+                    <div class="flex justify-center lg:justify-start gap-8 text-2xl mt-8 opacity-60">
+                        <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/darkwing.in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@DarkWing-in" target="_blank" class="hover:text-purple-500 transition"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- PORTFOLIO PAGE -->
-        <section id="portfolio" class="page px-6 lg:px-24">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
-                    <h2 class="text-6xl lg:text-8xl font-black uppercase tracking-tighter">Digital <span class="text-purple-500 italic">Vault</span></h2>
-                    <div class="flex gap-3 p-2 glass rounded-2xl">
-                        <button onclick="filterWork('all')" class="px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-widest bg-purple-600 text-white transition filter-btn active">All</button>
-                        <button onclick="filterWork('code')" class="px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition filter-btn">Coding</button>
-                        <button onclick="filterWork('art')" class="px-8 py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition filter-btn">AI Art</button>
+        <section id="portfolio" class="page px-6">
+            <div class="max-w-6xl mx-auto py-10">
+                <div class="flex flex-col lg:flex-row justify-between items-center mb-12 gap-6">
+                    <h2 class="text-4xl font-black uppercase tracking-tighter">Selected <span class="text-purple-500">Works</span></h2>
+                    <div class="flex gap-2 p-1 glass rounded-2xl">
+                        <button onclick="filterWork('all')" class="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest bg-purple-600 text-white transition filter-btn active">All</button>
+                        <button onclick="filterWork('code')" class="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition filter-btn">Code</button>
+                        <button onclick="filterWork('art')" class="px-6 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-white/5 transition filter-btn">Art</button>
                     </div>
                 </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Large Box -->
-                    <div class="work-item code md:col-span-2 h-[450px] lg:h-[600px] glass rounded-[3rem] p-16 flex flex-col justify-end purple-glow group relative overflow-hidden transition-all duration-500">
-                        <i class="fa-solid fa-code text-7xl text-purple-600 absolute top-16 right-16 opacity-10 group-hover:opacity-40 transition-all duration-500 group-hover:rotate-12"></i>
-                        <h3 class="text-4xl lg:text-5xl font-black uppercase mb-4">Web OS Framework</h3>
-                        <p class="text-gray-500 text-lg mono uppercase tracking-[0.4em]">React // Tailwind // Motion</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="work-item code md:col-span-2 h-72 glass rounded-[2.5rem] p-10 flex flex-col justify-end purple-glow group relative overflow-hidden">
+                        <i class="fa-solid fa-code text-4xl text-purple-600 absolute top-10 right-10 opacity-20 group-hover:opacity-100 transition"></i>
+                        <h3 class="text-2xl font-bold uppercase">Web Architecture</h3>
                     </div>
-                    <!-- Tall Art Box -->
-                    <div class="work-item art h-[450px] lg:h-[600px] glass rounded-[3rem] overflow-hidden group relative purple-glow">
-                        <img src="https://via.placeholder.com/600x900/111/444?text=AI+Art" class="w-full h-full object-cover opacity-30 group-hover:scale-110 group-hover:opacity-60 transition duration-1000">
-                        <div class="absolute bottom-12 left-12">
-                            <h3 class="text-3xl font-black uppercase">Shadow Ninja</h3>
-                            <p class="text-sm text-purple-400 mono">AI Visuals</p>
-                        </div>
+                    <div class="work-item art h-72 glass rounded-[2.5rem] overflow-hidden group relative purple-glow">
+                        <img src="https://via.placeholder.com/400x600/111/444?text=Art" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
                     </div>
-                    <!-- Full Width Pinterest Plug -->
-                    <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="work-item art md:col-span-3 h-64 lg:h-80 glass rounded-[3rem] flex items-center justify-between px-16 lg:px-24 hover:bg-purple-600/5 transition duration-500 group">
-                        <div class="space-y-4">
-                            <h3 class="text-3xl lg:text-5xl font-black uppercase">Pinterest Archive</h3>
-                            <p class="text-gray-500 text-lg font-medium">Explore 200+ High-Resolution Dark Visuals.</p>
-                        </div>
-                        <i class="fa-brands fa-pinterest text-6xl lg:text-8xl text-purple-500 group-hover:rotate-12 transition"></i>
+                    <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="work-item art md:col-span-3 h-40 glass rounded-[2.5rem] flex items-center justify-between px-10 hover:bg-purple-600/10 transition">
+                        <h3 class="text-xl font-bold uppercase">Pinterest Vault</h3>
+                        <i class="fa-brands fa-pinterest text-3xl text-purple-500"></i>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERTISE PAGE -->
-        <section id="services" class="page px-6 lg:px-24">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-6xl lg:text-8xl font-black uppercase mb-20 tracking-tighter">Current <span class="text-purple-500 italic">Stack</span></h2>
-                <div class="grid lg:grid-cols-3 gap-10">
-                    <div class="p-14 lg:p-20 glass rounded-[4rem] purple-glow group">
-                        <i class="fa-solid fa-terminal text-6xl text-purple-500 mb-10 group-hover:scale-110 transition"></i>
-                        <h3 class="text-3xl lg:text-4xl font-black uppercase mb-6 leading-none">Full-Stack Dev</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Responsive architectures built with modern industry standards. Optimized for speed and dark aesthetics.</p>
+        <!-- SERVICES PAGE -->
+        <section id="services" class="page px-6">
+            <div class="max-w-6xl mx-auto py-10">
+                <h2 class="text-4xl font-black uppercase mb-12 tracking-tighter text-center lg:text-left">Tech <span class="text-purple-500">Expertise</span></h2>
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <div class="p-10 glass rounded-[3rem] purple-glow">
+                        <i class="fa-solid fa-terminal text-3xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold uppercase mb-2">Dev</h3>
+                        <p class="text-gray-400 text-sm">Responsive, high-end web builds.</p>
                     </div>
-                    <div class="p-14 lg:p-20 glass rounded-[4rem] purple-glow group">
-                        <i class="fa-solid fa-wand-sparkles text-6xl text-purple-500 mb-10 group-hover:scale-110 transition"></i>
-                        <h3 class="text-3xl lg:text-4xl font-black uppercase mb-6 leading-none">AI Designer</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Unique character generation and conceptual environmental art. Custom prompts and post-editing.</p>
+                    <div class="p-10 glass rounded-[3rem] purple-glow">
+                        <i class="fa-solid fa-wand-magic-sparkles text-3xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold uppercase mb-2">AI Art</h3>
+                        <p class="text-gray-400 text-sm">Character and aesthetic branding.</p>
                     </div>
-                    <div class="p-14 lg:p-20 glass rounded-[4rem] purple-glow group">
-                        <i class="fa-solid fa-film text-6xl text-purple-500 mb-10 group-hover:scale-110 transition"></i>
-                        <h3 class="text-3xl lg:text-4xl font-black uppercase mb-6 leading-none">Motion Arts</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed">Cinematic anime shorts and dynamic reels. Focused on high engagement and dark visual atmosphere.</p>
+                    <div class="p-10 glass rounded-[3rem] purple-glow">
+                        <i class="fa-solid fa-film text-3xl text-purple-500 mb-6"></i>
+                        <h3 class="text-xl font-bold uppercase mb-2">Editing</h3>
+                        <p class="text-gray-400 text-sm">Motion graphics & dynamic shorts.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT PAGE -->
-        <section id="contact" class="page px-6 lg:px-24">
-            <div class="max-w-6xl mx-auto text-center py-16 lg:py-32">
-                <h2 class="text-7xl lg:text-[12rem] font-black mb-10 uppercase tracking-tighter leading-none">Let's <span class="text-purple-500 italic">Build.</span></h2>
-                <p class="text-gray-400 mb-16 text-2xl lg:text-4xl max-w-4xl mx-auto leading-relaxed">Ready to transform your vision into a digital masterpiece? My transmission lines are open.</p>
-                
-                <a href="mailto:darkwingdomain@gmail.com" class="inline-block bg-white text-black px-16 lg:px-24 py-8 lg:py-10 rounded-3xl font-black text-2xl lg:text-4xl uppercase hover:bg-purple-600 hover:text-white transition shadow-2xl mb-24 tracking-tighter">
+        <!-- CONTACT PAGE (Grouped) -->
+        <section id="contact" class="page px-6">
+            <div class="max-w-4xl mx-auto text-center py-10 lg:py-20">
+                <h2 class="text-6xl lg:text-8xl font-black mb-8 uppercase tracking-tighter">Let's <span class="text-purple-500">Build.</span></h2>
+                <a href="mailto:darkwingdomain@gmail.com" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xl lg:text-2xl uppercase hover:bg-purple-500 hover:text-white transition mb-16">
                     EMAIL ME
                 </a>
 
-                <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-                    <!-- SUPPORT BOX -->
-                    <div class="space-y-10">
-                        <h4 class="text-xs font-black uppercase tracking-[0.6em] text-gray-500">Project Backing</h4>
-                        <div class="flex gap-6">
-                            <a href="https://patreon.com/Darkwingdomain" target="_blank" class="flex-1 glass py-10 rounded-[3rem] flex flex-col items-center gap-4 hover:border-purple-500 transition group">
-                                <i class="fa-brands fa-patreon text-4xl group-hover:text-purple-500 transition"></i>
-                                <span class="text-sm font-black">PATREON</span>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <!-- SUPPORT GROUP -->
+                    <div class="glass p-8 rounded-[2.5rem]">
+                        <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 mb-6">Support Channels</h4>
+                        <div class="flex gap-4">
+                            <a href="https://patreon.com/Darkwingdomain" target="_blank" class="flex-1 bg-white/5 py-4 rounded-xl flex flex-col items-center gap-2 hover:border-purple-500 border border-transparent transition">
+                                <i class="fa-brands fa-patreon text-xl"></i>
+                                <span class="text-[9px] font-bold">PATREON</span>
                             </a>
-                            <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="flex-1 glass py-10 rounded-[3rem] flex flex-col items-center gap-4 hover:border-purple-500 transition group">
-                                <i class="fa-solid fa-mug-hot text-4xl group-hover:text-purple-500 transition"></i>
-                                <span class="text-sm font-black">KO-FI</span>
+                            <a href="https://Ko-fi.com/darkwingstudio" target="_blank" class="flex-1 bg-white/5 py-4 rounded-xl flex flex-col items-center gap-2 hover:border-purple-500 border border-transparent transition">
+                                <i class="fa-solid fa-mug-hot text-xl"></i>
+                                <span class="text-[9px] font-bold">KO-FI</span>
                             </a>
                         </div>
                     </div>
-
-                    <!-- SOCIAL BOX -->
-                    <div class="space-y-10">
-                        <h4 class="text-xs font-black uppercase tracking-[0.6em] text-gray-500">Global Presence</h4>
-                        <div class="flex gap-6">
-                            <a href="https://www.instagram.com/darkwing.in" target="_blank" class="flex-1 glass py-10 rounded-[3rem] flex flex-col items-center gap-4 hover:border-purple-500 transition group">
-                                <i class="fa-brands fa-instagram text-3xl"></i>
-                                <span class="text-xs font-black">INSTAGRAM</span>
-                            </a>
-                            <a href="https://youtube.com/@DarkWing-in" target="_blank" class="flex-1 glass py-10 rounded-[3rem] flex flex-col items-center gap-4 hover:border-purple-500 transition group">
-                                <i class="fa-brands fa-youtube text-3xl"></i>
-                                <span class="text-xs font-black">YOUTUBE</span>
-                            </a>
-                            <a href="https://www.pinterest.com/Darkwingstudio" target="_blank" class="flex-1 glass py-10 rounded-[3rem] flex flex-col items-center gap-4 hover:border-purple-500 transition group">
-                                <i class="fa-brands fa-pinterest text-3xl"></i>
-                                <span class="text-xs font-black">PINTEREST</span>
-                            </a>
+                    <!-- SOCIAL GROUP -->
+                    <div class="glass p-8 rounded-[2.5rem]">
+                        <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 mb-6">Social Network</h4>
+                        <div class="flex gap-3">
+                            <a href="https://instagram.com/darkwing.in" target="_blank" class="flex-1 bg-white/5 py-4 rounded-xl flex items-center justify-center hover:text-purple-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://youtube.com/@DarkWing-in" target="_blank" class="flex-1 bg-white/5 py-4 rounded-xl flex items-center justify-center hover:text-purple-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://pinterest.com/Darkwingstudio" target="_blank" class="flex-1 bg-white/5 py-4 rounded-xl flex items-center justify-center hover:text-purple-500 transition"><i class="fa-brands fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
@@ -205,50 +166,29 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="py-16 border-t border-white/5 bg-black px-12">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8">
-            <div class="text-center lg:text-left">
-                <p class="text-sm font-black uppercase tracking-[0.4em] text-white mb-3">DarkWing Studio</p>
-                <p class="text-[11px] text-gray-500 mono uppercase tracking-widest leading-none">Rohit // Reizen © 2025 // All Digital Rights Reserved</p>
-            </div>
-            <div class="flex gap-12 text-[11px] font-black uppercase tracking-widest text-gray-400">
-                <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition">GitHub Profile</a>
-                <a href="mailto:darkwingdomain@gmail.com" class="hover:text-purple-500 transition">Work Inquiry</a>
-            </div>
-        </div>
-    </footer>
-
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
 
-            // Header Active State
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
-                const map = { home: 'home', portfolio: 'portfolio', services: 'expertise', contact: 'connect' };
+                const map = {home: 'home', portfolio: 'work', services: 'tech', contact: 'connect'};
                 if(link.innerText.toLowerCase() === map[pageId]) link.classList.add('active');
             });
 
-            // Mobile Active State
             document.querySelectorAll('.mobile-item').forEach(item => {
                 item.classList.remove('active');
                 if(item.getAttribute('onclick').includes(pageId)) item.classList.add('active');
             });
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0, 0);
         }
 
         function filterWork(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('bg-purple-600', 'text-white', 'active'));
             event.currentTarget.classList.add('bg-purple-600', 'text-white', 'active');
             document.querySelectorAll('.work-item').forEach(item => {
-                if(category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
             });
         }
     </script>
