@@ -214,7 +214,9 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left">
                 <p class="text-xs font-bold uppercase tracking-[0.3em] text-white">DarkWing Studio</p>
-                <p class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.2em] mt-1">Hand-coded by Rohit (Reizen) © 2025</p>
+                <p class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.2em] mt-1">
+  Hand-coded by Rohit (Reizen) © <span id="year"></span>
+</p>
             </div>
             <div class="flex gap-8 text-[9px] font-black uppercase tracking-widest text-gray-500">
                 <a href="https://github.com/DarkWingStudio" target="_blank" class="hover:text-purple-500 transition">GitHub</a>
@@ -224,6 +226,9 @@
     </footer>
 
     <script>
+
+     document.getElementById("year").textContent = new Date().getFullYear();
+
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
