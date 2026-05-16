@@ -1,0 +1,26 @@
+{
+  "name": "Rohit",
+  "brand": "DarkWing Studio",
+  "taglines": [
+    "I build full-stack web apps._",
+    "I create anime & AI art._",
+    "Code meets creativity._"
+  ],
+  "bio": "Full-stack builder and creative director. I turn ideas into production apps using React, Supabase, and GraphQL - then make them look cinematic.",
+  "status": "available",
+  "statusText": "Available for freelance",
+  "currentProject": {
+    "name": "PromptVault",
+    "status": "COMPILING"
+  },
+  "deploymentVersion": "v3.0.0",
+  "responseTime": "Usually within 24 hours",
+  "availableFor": ["Freelance", "Collaborations", "Full-time roles"],
+  "socials": {
+    "github": "https://github.com/DarkWingStudio",
+    "instagram": "https://instagram.com/DarkWing.in",
+    "pinterest": "https://pinterest.com/DarkWing.in",
+    "email": "contact@darkwing.in",
+    "twitter": "https://x.com/darkwing_actual"
+  }
+}

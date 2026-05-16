@@ -1,0 +1,7 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="openBlogCover">
+  <title id="openBlogCover">OpenSourceHub cover</title>
+  <rect width="1200" height="700" rx="40" fill="#10101b" />
+  <circle cx="300" cy="260" r="200" fill="rgba(123,47,255,0.14)" />
+  <path d="M200 430 C320 350 420 430 520 350 C620 270 780 420 860 340" fill="none" stroke="#7b2fff" stroke-width="18" />
+  <text x="100" y="120" fill="#fff" font-family="Share Tech Mono, monospace" font-size="52">OpenSourceHub</text>
+</svg>

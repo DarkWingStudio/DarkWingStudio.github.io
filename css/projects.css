@@ -1,0 +1,142 @@
+.page-hero {
+  padding: 5rem 0 2rem;
+}
+
+.page-hero__copy {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.projects-section {
+  padding: 2rem 0 5rem;
+}
+
+.projects-toolbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+}
+
+.filter-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  padding: 0.85rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-tab.active,
+.filter-tab:hover {
+  background: rgba(123, 47, 255, 0.14);
+  box-shadow: 0 0 24px rgba(123, 47, 255, 0.12);
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-card,
+.featured-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover,
+.featured-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px rgba(123, 47, 255, 0.18);
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.4rem;
+}
+
+.project-card img,
+.featured-card img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.project-copy {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.project-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.project-description {
+  color: var(--text-muted);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--purple);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  color: var(--purple);
+}
+
+.featured-card {
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+}
+
+.featured-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.featured-copy h2 {
+  font-size: clamp(2rem, 2.5vw, 3rem);
+}
+
+@media (min-width: 640px) {
+  .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .featured-card { grid-column: 1 / -1; }
+}

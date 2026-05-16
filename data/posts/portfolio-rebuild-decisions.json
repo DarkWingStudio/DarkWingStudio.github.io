@@ -1,0 +1,10 @@
+{
+  "id": "portfolio-rebuild-decisions",
+  "title": "Rebuilding My Portfolio From Scratch - Every Design Decision Explained",
+  "date": "2026-05-08",
+  "readTime": "5 min",
+  "tags": ["Dev Logs", "Design"],
+  "excerpt": "Why the portfolio needed to communicate full-stack engineering and creative direction in the first ten seconds.",
+  "cover": "assets/blog/gsoc-cover.svg",
+  "content": "<h2>The problem</h2><p>Most portfolios make visitors work too hard. I wanted DarkWing Studio to answer the important questions immediately: who I am, what I build, and why the creative side matters.</p><h2>The structure</h2><p>The home page leads with a direct hero, a terminal bio, and a bento grid that points to projects, writing, and the current build. Every later page expands one of those promises.</p><h2>The visual system</h2><p>The design uses a dark interface, restrained purple accents, compact cards, and readable mono typography. The goal is cinematic without becoming slow, noisy, or hard to scan.</p><h2>What I would improve next</h2><p>The next version needs deeper case-study metrics, a final resume PDF, and more screenshots from production builds.</p>"
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — DarkWing Studio</title>
+  <meta name="description" content="Read DarkWing Studio's dev logs, AI creative notes, and open source contributions." />
+  <meta property="og:title" content="Blog — DarkWing Studio" />
+  <meta property="og:description" content="Explore blog posts about open source, AI creative work, and developer stories from DarkWing Studio." />
+  <meta property="og:image" content="assets/og/og.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg"  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <!-- Header will be loaded by partials.js -->
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--blog">
+      <div class="page-hero__copy container">
+        <p class="eyebrow">Blog</p>
+        <h1>Developer logs, AI experiments, and open source notes.</h1>
+        <p class="page-lead">Read behind-the-scenes posts on projects, contributions, and creative systems.</p>
+      </div>
+    </section>
+
+    <section class="blog-section container">
+      <div class="blog-toolbar" aria-label="Blog filters">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="Open Source">Open Source</button>
+        <button class="filter-tab" data-filter="Dev Logs">Dev Logs</button>
+        <button class="filter-tab" data-filter="AI/Creative">AI/Creative</button>
+        <button class="filter-tab" data-filter="Contributions">Contributions</button>
+      </div>
+      <div class="blog-grid" id="blogGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer">
+    <!-- Footer will be loaded by partials.js -->
+  </footer>
+
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/meta.js"></script>
+  <script defer src="js/partials.js"></script>
+  <script defer src="js/nav.js"></script>
+  <script defer src="js/scroll-animate.js"></script>
+  <script defer src="js/blog.js"></script>
+</body>
+</html>

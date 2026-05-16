@@ -1,0 +1,38 @@
+[
+  {
+    "type": "dev",
+    "role": "Full-Stack Developer",
+    "org": "DarkWing Studio",
+    "range": "2023-Present",
+    "points": [
+      "Built 6+ production web apps from zero, handling database design, UI polish, and deployment.",
+      "Shipped React, Vite, Supabase, and GraphQL workflows for fast product prototypes.",
+      "Documented build decisions through case studies and technical blog posts."
+    ],
+    "link": "https://darkwingstudio.github.io"
+  },
+  {
+    "type": "dev",
+    "role": "Product Builder",
+    "org": "OpenSourceHub",
+    "range": "2025-Present",
+    "points": [
+      "Built a GitHub repo health scorer for developers looking for high-quality open source projects.",
+      "Reduced repeated GitHub API calls with a 6-hour cache strategy and edge-function data shaping.",
+      "Designed beginner-friendly filters to make contribution discovery faster and less noisy."
+    ],
+    "link": "https://opensourcehub.lovable.app"
+  },
+  {
+    "type": "creative",
+    "role": "Creative Director",
+    "org": "DarkWing Studio",
+    "range": "2024-Present",
+    "points": [
+      "Created anime-inspired AI visuals, edits, and 3D direction for the DarkWing brand.",
+      "Built a reusable visual language across portfolio, project thumbnails, and social content.",
+      "Directed UI motion and cinematic art direction without sacrificing page performance."
+    ],
+    "link": "https://darkwingstudio.github.io"
+  }
+]

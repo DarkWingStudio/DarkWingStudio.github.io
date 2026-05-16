@@ -1,0 +1,11 @@
+[
+  { "name": "React / Vite", "level": 92, "category": "Frontend" },
+  { "name": "HTML / CSS / Vanilla JS", "level": 90, "category": "Frontend" },
+  { "name": "UI / UX Systems", "level": 86, "category": "Frontend" },
+  { "name": "Supabase", "level": 84, "category": "Backend" },
+  { "name": "GraphQL", "level": 80, "category": "Backend" },
+  { "name": "Edge Functions", "level": 78, "category": "Backend" },
+  { "name": "Stable Diffusion", "level": 88, "category": "Creative" },
+  { "name": "Anime Edits", "level": 86, "category": "Creative" },
+  { "name": "3D Renders", "level": 74, "category": "Creative" }
+]

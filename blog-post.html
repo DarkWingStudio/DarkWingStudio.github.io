@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post — DarkWing Studio</title>
+  <meta name="description" content="Read a blog post from DarkWing Studio about creative dev work and open source contributions." />
+  <meta property="og:title" content="DarkWing Studio Blog Post" />
+  <meta property="og:description" content="Detailed developer insight and studio case study from DarkWing Studio." />
+  <meta property="og:image" content="assets/og/og.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg"  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <header class="site-header" id="site-header">
+    <!-- Header will be loaded by partials.js -->
+  </header>
+
+  <main>
+    <section class="blog-post-hero container">
+      <nav class="breadcrumb"><a href="blog.html">← Back to Blog</a></nav>
+      <article class="post-article" id="postArticle">
+        <div class="post-header">
+          <p class="eyebrow" id="postCategory">Blog</p>
+          <h1 id="postTitle">Loading post…</h1>
+          <div class="post-meta" id="postMeta"></div>
+        </div>
+        <div class="post-cover" id="postCover"></div>
+        <div class="post-content" id="postContent"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer">
+    <!-- Footer will be loaded by partials.js -->
+  </footer>
+
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/meta.js"></script>
+  <script defer src="js/partials.js"></script>
+  <script defer src="js/nav.js"></script>
+  <script defer src="js/blog-post.js"></script>
+</body>
+</html>

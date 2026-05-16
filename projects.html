@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — DarkWing Studio</title>
+  <meta name="description" content="Explore DarkWing Studio's web apps, creative builds, and AI tools powered by vanilla JS and cinematic design." />
+  <meta property="og:title" content="Projects — DarkWing Studio" />
+  <meta property="og:description" content="Browse featured web apps, creative work, and AI tools by DarkWing Studio." />
+  <meta property="og:image" content="assets/og/og.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg"  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <!-- Header will be loaded by partials.js -->
+  </header>
+
+  <main>
+    <section class="page-hero page-hero--projects">
+      <div class="page-hero__copy container">
+        <p class="eyebrow">Projects</p>
+        <h1>Built Worlds, Interfaces, and AI Tools</h1>
+        <p class="page-lead">A portfolio of full-stack web apps, creative experiments, and tools designed for brand-led digital experiences.</p>
+      </div>
+    </section>
+
+    <section class="projects-section container">
+      <div class="projects-toolbar">
+        <div class="filters" role="tablist" aria-label="Project categories">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="web-apps">Web Apps</button>
+          <button class="filter-tab" data-filter="creative">Creative</button>
+          <button class="filter-tab" data-filter="ai-tools">AI/Tools</button>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer">
+    <!-- Footer will be loaded by partials.js -->
+  </footer>
+
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/meta.js"></script>
+  <script defer src="js/partials.js"></script>
+  <script defer src="js/nav.js"></script>
+  <script defer src="js/scroll-animate.js"></script>
+  <script defer src="js/tilt.js"></script>
+  <script defer src="js/projects.js"></script>
+</body>
+</html>

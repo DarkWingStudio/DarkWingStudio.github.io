@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+Host: https://darkwingstudio.github.io
+Sitemap: https://darkwingstudio.github.io/sitemap.xml

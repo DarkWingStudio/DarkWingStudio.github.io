@@ -1,0 +1,218 @@
+﻿.hero-section {
+  padding: 5rem 0 3rem;
+  background: radial-gradient(circle at 12% 8%, rgba(255, 90, 31, 0.14), transparent 34%),
+              radial-gradient(circle at 85% 20%, rgba(255, 130, 90, 0.14), transparent 28%);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy h1 span {
+  color: var(--accent);
+}
+
+.hero-stats {
+  margin: 1.4rem 0 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.hero-stats article,
+.service-card,
+.timeline article,
+.testimonials-grid article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.hero-stats h3,
+.timeline h3 {
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  display: grid;
+  place-items: center;
+}
+
+.avatar-shell {
+  width: min(410px, 100%);
+  border-radius: 26px;
+  border: 1px solid var(--border);
+  padding: 0.7rem;
+  background: linear-gradient(160deg, rgba(255, 90, 31, 0.2), rgba(34, 35, 39, 0.9));
+}
+
+.hero-avatar {
+  border-radius: 20px;
+  width: 100%;
+}
+
+.services-section,
+.experience-section,
+.portfolio-section,
+.cta-section {
+  padding: 2rem 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-head a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.services-grid,
+.timeline,
+.testimonials-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.services-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.timeline {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.home-project-card img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.home-project-card div {
+  padding: 1rem;
+}
+
+.skills-section {
+  padding: 2.5rem 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  animation: float 6s ease-in-out var(--delay) infinite;
+}
+
+.skill-card h3 {
+  margin: 0.65rem 0 0;
+  color: var(--white);
+}
+
+.skill-icon {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  border-radius: 22px;
+  color: var(--white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
+}
+
+.html-icon {
+  background: linear-gradient(135deg, #e44f26, #f06529);
+}
+
+.css-icon {
+  background: linear-gradient(135deg, #264de4, #1b4cd7);
+}
+
+.js-icon {
+  background: linear-gradient(135deg, #f7df1e, #f0c72f);
+  color: #111;
+}
+
+.react-icon {
+  background: linear-gradient(135deg, #61dafb, #29b0ff);
+  color: #111;
+}
+
+.node-icon {
+  background: linear-gradient(135deg, #3c873a, #60b25d);
+}
+
+.git-icon {
+  background: linear-gradient(135deg, #f05032, #d84528);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.testimonials-section {
+  background: #191b20;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 0;
+}
+
+.cta-section {
+  text-align: center;
+}
+
+.cta-section .btn {
+  margin-top: 1rem;
+}
+
+@media (max-width: 980px) {
+  .hero-content,
+  .services-grid,
+  .timeline,
+  .portfolio-grid,
+  .testimonials-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

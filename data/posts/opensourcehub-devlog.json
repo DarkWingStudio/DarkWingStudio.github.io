@@ -1,0 +1,10 @@
+{
+  "id": "opensourcehub-devlog",
+  "title": "How I Built OpenSourceHub - GitHub Intelligence With Supabase Edge Functions",
+  "date": "2026-05-01",
+  "readTime": "6 min",
+  "tags": ["Open Source", "Dev Logs"],
+  "excerpt": "The architecture, scoring model, cache strategy, and tradeoffs behind a GitHub discovery tool for serious developers.",
+  "cover": "assets/blog/opensourcehub-cover.svg",
+  "content": "<h2>The build goal</h2><p>OpenSourceHub began as a way to find useful repositories without opening twenty tabs and guessing from stars alone. The product scores repository health, detects hidden gems, and helps beginners find projects they can actually contribute to.</p><h2>Architecture</h2><p>The front end is a fast React interface. Supabase handles structured data and edge functions shape GitHub responses before the UI sees them. GraphQL keeps repo lookups focused so the app asks for only the fields it needs.</p><h2>The hard part</h2><p>The main challenge was avoiding noisy, expensive API calls. A 6-hour cache TTL keeps repeated searches fast while still giving developers fresh enough data for discovery.</p><h2>Result</h2><p>The app now has a zero-auth browsing flow, clearer repo quality signals, and a case-study-ready architecture that can grow into alerts, saved lists, and contribution tracking.</p>"
+}
