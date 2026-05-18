@@ -4,19 +4,45 @@ document.addEventListener('DOMContentLoaded', async function () {
   const socialRow = document.getElementById('socialRow');
 
   if (skillsGrid) {
-    const res = await fetch('data/skills.json');
-    const skills = await res.json();
-    skillsGrid.innerHTML = skills.map(skill => `
-      <div class="skill-card" data-scroll>
-        <div class="skill-meta">
-          <span class="skill-name">${skill.name}</span>
-          <span>${skill.level}%</span>
-        </div>
-        <div class="skill-bar">
-          <div class="skill-fill" style="width: ${skill.level}%;"></div>
-        </div>
-      </div>
-    `).join('');
+    const skills = await fetchJSON('data/skills.json');
+    const categories = [
+      { key: 'Frontend', label: 'Frontend' },
+      { key: 'Backend', label: 'Backend' },
+      { key: 'Other', label: 'Other' }
+    ];
+
+    const iconMap = {
+      'React / Vite': 'https://cdn.simpleicons.org/react',
+      'HTML / CSS / Vanilla JS': 'https://cdn.simpleicons.org/html5',
+      'UI / UX Systems': 'https://cdn.simpleicons.org/figma',
+      'Supabase': 'https://cdn.simpleicons.org/supabase',
+      'GraphQL': 'https://cdn.simpleicons.org/graphql',
+      'Edge Functions': 'https://cdn.simpleicons.org/cloudflareworkers',
+      'Stable Diffusion': 'https://cdn.simpleicons.org/stabilityai',
+      'Anime Edits': 'https://cdn.simpleicons.org/adobephotoshop',
+      '3D Renders': 'https://cdn.simpleicons.org/blender'
+    };
+
+    skillsGrid.innerHTML = categories.map((category) => {
+      const items = skills.filter((skill) => {
+        if (category.key === 'Other') return !['Frontend', 'Backend'].includes(skill.category);
+        return skill.category === category.key;
+      });
+
+      return `
+        <section class="skill-group-card" data-scroll>
+          <h3>${category.label}</h3>
+          <div class="skill-logo-list">
+            ${items.map((skill) => `
+              <article class="skill-logo-item">
+                <img src="${iconMap[skill.name] || 'https://cdn.simpleicons.org/javascript'}" alt="${skill.name} logo" loading="lazy">
+                <span>${skill.name}</span>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }).join('');
   }
 
   if (currentWork) {

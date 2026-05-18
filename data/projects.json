@@ -9,9 +9,39 @@
     "status": "live",
     "metric": "6-hour cache TTL / zero auth / edge functions",
     "live": "https://opensourcehub.lovable.app",
-    "github": "https://github.com/DarkWingStudio",
+    "github": "",
     "thumbnail": "assets/projects/opensourcehub.webp",
     "featured": true,
     "caseStudy": true
+  },
+  {
+    "id": "linkinbio",
+    "title": "Linkinbio",
+    "oneliner": "A mobile-first link hub with tabs, JSON-driven cards, and SEO-ready structure.",
+    "description": "Linkinbio is a dark cyberpunk-style profile page for links and digital products. It uses plain HTML/CSS/JS with JSON-powered links and shop sections, responsive layout, and strong SEO metadata for social previews.",
+    "tags": ["HTML", "CSS", "JavaScript", "SEO"],
+    "category": "creative",
+    "status": "live",
+    "metric": "JSON-powered cards / mobile-first UI / static hosting",
+    "live": "https://darkwingstudio.netlify.app/",
+    "github": "https://github.com/DarkWingStudio/Linkinbio",
+    "thumbnail": "assets/projects/linkinbio.webp",
+    "featured": false,
+    "caseStudy": false
+  },
+  {
+    "id": "daykit",
+    "title": "DayKit",
+    "oneliner": "A privacy-first toolkit of daily utilities that runs fast in the browser.",
+    "description": "DayKit is a lightweight utility web app with tools like age calculator, text cleaner, password checker, focus timer, and countdown. It is built for zero-friction usage with no login and privacy-first client-side behavior.",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "category": "web-apps",
+    "status": "live",
+    "metric": "Client-side tools / no-login flow / static deploy",
+    "live": "https://daykit.netlify.app/",
+    "github": "https://github.com/DarkWingStudio/DayKit",
+    "thumbnail": "assets/projects/daykit.webp",
+    "featured": false,
+    "caseStudy": false
   }
 ]

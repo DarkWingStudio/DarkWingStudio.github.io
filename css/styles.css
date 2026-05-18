@@ -27,16 +27,16 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  opacity: 1;
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea { font: inherit; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 .container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
 .site-header { position: sticky; top: 0; z-index: 999; }
-.site-footer { padding: 2rem 0; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 4rem; }
-.footer-links, .footer-legal { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.8rem; }
-.footer-links a { color: var(--accent); }
-.footer-legal a { color: var(--text-muted); font-size: 0.9rem; }
+.site-footer { margin-top: 4rem; padding-bottom: 2rem; }
 .eyebrow { display: inline-block; margin-bottom: 1rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.78rem; font-weight: 700; }
 h1, h2, h3, p { margin: 0; }
 h1, h2, h3 { font-family: 'Poppins', sans-serif; letter-spacing: 0.01em; }
@@ -71,8 +71,150 @@ p { color: var(--text-muted); }
 .error-icon { font-size: 2rem; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
+body.page-enter {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+body.page-enter.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-leave-active {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.footer-shell {
+  background: linear-gradient(135deg, #25262c, #1f2025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 30px;
+  padding: 2.25rem;
+}
+
+.footer-top,
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-top {
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-top h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.footer-hire-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  color: var(--white);
+  font-weight: 700;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 0.9fr;
+  gap: 1.8rem;
+  padding: 1.8rem 0;
+}
+
+.footer-grid h3,
+.footer-grid h4 {
+  color: var(--white);
+  margin-bottom: 0.9rem;
+}
+
+.footer-brand-col p {
+  max-width: 560px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.footer-socials a img {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 90, 31, 0.6);
+  box-shadow: 0 0 16px rgba(255, 90, 31, 0.35);
+}
+
+.footer-nav-links,
+.footer-contact-links {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.footer-nav-links a,
+.footer-contact-links a {
+  color: var(--text-muted);
+}
+
+.footer-bottom {
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  flex-wrap: wrap;
+}
+
+.footer-bottom p span {
+  color: var(--accent);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
-  .footer-links, .footer-legal { flex-direction: column; gap: 0.6rem; }
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-shell {
+    padding: 1.5rem;
+    border-radius: 22px;
+  }
   h1 { font-size: clamp(2rem, 8vw, 3rem); }
 }
 
@@ -91,4 +233,3 @@ p { color: var(--text-muted); }
 @media (max-width: 768px) {
   .skill-pill { width: 56px; height: 56px; font-size: 1.3rem; }
 }
-
