@@ -14,10 +14,15 @@
       const top = projects.slice(0, 3);
       homeGrid.innerHTML = top.map((item) => `
         <article class="home-project-card">
-          <img src="${item.thumbnail}" alt="${item.title} preview" loading="lazy">
-          <div>
+          <div class="home-project-card-media">
+            <img src="${item.thumbnail}" alt="${item.title} preview" loading="lazy">
+          </div>
+          <div class="home-project-card-body">
             <h3>${item.title}</h3>
             <p>${item.description}</p>
+          </div>
+          <div class="home-project-card-footer">
+            <a class="home-project-card-btn" href="${item.live}" target="_blank" rel="noreferrer noopener">Read More</a>
           </div>
         </article>
       `).join('');
