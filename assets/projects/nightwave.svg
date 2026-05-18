@@ -1,7 +1,0 @@
-<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nightTitle">
-  <title id="nightTitle">NightWave Studio project thumbnail</title>
-  <rect width="800" height="500" fill="#10101a" rx="36" />
-  <path d="M0 360 C160 270 320 430 480 340 C640 250 760 400 800 330" fill="none" stroke="#7b2fff" stroke-width="18" />
-  <path d="M0 320 C200 210 360 380 520 300 C680 220 780 360 800 300" fill="none" stroke="#a58cff" stroke-width="10" opacity="0.8" />
-  <text x="120" y="120" fill="#fff" font-family="Share Tech Mono, monospace" font-size="40">NightWave</text>
-</svg>

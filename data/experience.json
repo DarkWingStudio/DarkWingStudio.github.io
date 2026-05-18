@@ -22,17 +22,5 @@
       "Designed beginner-friendly filters to make contribution discovery faster and less noisy."
     ],
     "link": "https://opensourcehub.lovable.app"
-  },
-  {
-    "type": "creative",
-    "role": "Creative Director",
-    "org": "DarkWing Studio",
-    "range": "2024-Present",
-    "points": [
-      "Created anime-inspired AI visuals, edits, and 3D direction for the DarkWing brand.",
-      "Built a reusable visual language across portfolio, project thumbnails, and social content.",
-      "Directed UI motion and cinematic art direction without sacrificing page performance."
-    ],
-    "link": "https://darkwingstudio.github.io"
   }
 ]

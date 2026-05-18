@@ -8,6 +8,7 @@ async function loadPartials() {
 
     if (headerEl) {
       headerEl.innerHTML = buildHeader(meta);
+      initNav();
     }
 
     if (footerEl) {
@@ -35,7 +36,6 @@ function buildHeader(meta) {
         <a href="experience.html" class="nav-link ${currentPath === 'experience.html' ? 'active' : ''}">Experience</a>
         <a href="about.html" class="nav-link ${currentPath === 'about.html' ? 'active' : ''}">About</a>
         <a href="contact.html" class="nav-link ${currentPath === 'contact.html' ? 'active' : ''}">Contact</a>
-        <a href="contact.html" class="nav-cta">Hire Me -></a>
       </div>
     </nav>
   `;
@@ -60,3 +60,22 @@ function buildFooter(meta) {
 function setActiveNav() {}
 
 document.addEventListener('DOMContentLoaded', loadPartials);
+
+function initNav() {
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  const nav = document.getElementById('siteNav');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!nav) return;
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+}

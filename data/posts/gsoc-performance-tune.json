@@ -1,9 +1,0 @@
-{
-  "id": "gsoc-performance-tune",
-  "title": "Scaling a Performance-Driven Portfolio with AI UX",
-  "date": "2025-11-09",
-  "readTime": "6 min",
-  "tags": ["AI/Creative", "Contributions"],
-  "cover": "assets/blog/gsoc-cover.svg",
-  "content": "<p>This post explores how to build an immersive portfolio landing page that balances rich visuals with fast load times. I leaned into animated elements, dark-glow effects, and clean content hierarchy.</p><h2>Design choices</h2><p>Every animation was crafted to feel purposeful: the orbital ring, the scanline overlay, and the soft purple glow reinforce the brand without slowing the experience.</p><h2>Performance optimizations</h2><ul><li>Defer all scripts</li><li>Use compact SVG assets</li><li>Lazy-load images and minimize bundle size</li></ul><p>The result is a portfolio that looks bold and still loads quickly on modern devices.</p>"
-}

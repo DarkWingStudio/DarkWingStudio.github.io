@@ -6,7 +6,7 @@
     "readTime": "6 min",
     "tags": ["Open Source", "Dev Logs"],
     "excerpt": "The architecture, scoring model, cache strategy, and tradeoffs behind a GitHub discovery tool for serious developers.",
-    "cover": "assets/blog/opensourcehub-cover.svg",
+    "cover": "assets/blog/opensourcehub.webp",
     "featured": true
   },
   {
@@ -16,16 +16,6 @@
     "readTime": "5 min",
     "tags": ["Dev Logs", "Design"],
     "excerpt": "Why the portfolio needed to communicate full-stack engineering and creative direction in the first ten seconds.",
-    "cover": "assets/blog/gsoc-cover.svg",
-    "featured": false
-  },
-  {
-    "id": "ai-art-workflow",
-    "title": "My AI Art Workflow - How I Create Cinematic Anime Visuals With Stable Diffusion",
-    "date": "2026-05-12",
-    "readTime": "7 min",
-    "tags": ["AI/Creative", "Process"],
-    "excerpt": "A practical look at prompt planning, reference gathering, iteration, upscaling, and final art direction.",
     "cover": "assets/blog/gsoc-cover.svg",
     "featured": false
   }

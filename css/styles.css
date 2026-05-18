@@ -76,3 +76,19 @@ p { color: var(--text-muted); }
   h1 { font-size: clamp(2rem, 8vw, 3rem); }
 }
 
+/* Skills carousel */
+.skills-carousel { overflow: hidden; padding: 1rem 0 2rem; }
+.skills-track { display: flex; gap: 1rem; align-items: center; width: max-content; }
+.skill-pill { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: transparent; border-radius: 12px; color: var(--text); font-size: 1.6rem; border: none; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.skill-pill i { pointer-events: none; }
+.skill-pill:hover, .skill-pill:focus { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.45); }
+
+/* static horizontal layout (no movement) */
+.skills-carousel { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.skills-track { animation: none; }
+/* remove keyframes used for continuous scroll */
+
+@media (max-width: 768px) {
+  .skill-pill { width: 56px; height: 56px; font-size: 1.3rem; }
+}
+
