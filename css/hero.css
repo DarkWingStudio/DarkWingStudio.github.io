@@ -69,6 +69,23 @@
   padding: 2rem 0;
 }
 
+.featured-project {
+  padding: 2rem 0;
+}
+
+.featured-project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.featured-summary {
+  color: var(--text);
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;

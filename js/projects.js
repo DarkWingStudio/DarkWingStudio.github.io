@@ -1,6 +1,7 @@
 ﻿document.addEventListener('DOMContentLoaded', async function () {
   const grid = document.getElementById('projectsGrid');
   const homeGrid = document.getElementById('homeProjectGrid');
+  const featuredMount = document.getElementById('featuredProjectMount');
   const filters = document.querySelectorAll('.filter-tab');
 
   if (!grid && !homeGrid) return;
@@ -11,6 +12,8 @@
     const projects = await fetchJSON('data/projects.json');
     const tagIcons = {
       React: 'https://cdn.simpleicons.org/react/61DAFB',
+      Vite: 'https://cdn.simpleicons.org/vite/646CFF',
+      Tailwind: 'https://cdn.simpleicons.org/tailwindcss/06B6D4',
       Supabase: 'https://cdn.simpleicons.org/supabase/3ECF8E',
       GraphQL: 'https://cdn.simpleicons.org/graphql/E10098',
       HTML: 'https://cdn.simpleicons.org/html5/E34F26',
@@ -37,6 +40,28 @@
       `).join('');
     }
 
+    if (featuredMount) {
+      const featured = projects.find((item) => item.featured);
+      if (featured) {
+        featuredMount.innerHTML = `
+          <article class="featured-card" id="${featured.id}">
+            <img src="${featured.thumbnail}" alt="${featured.title} screenshot" loading="eager">
+            <div class="featured-copy">
+              <h3>${featured.title}</h3>
+              <p>${featured.description}</p>
+              <p><strong>Stack:</strong> React + Vite + Tailwind + GitHub GraphQL API + Supabase (6-hour TTL cache)</p>
+              <p><strong>What makes it hard:</strong> ${featured.challenge || 'Rate limiting, proxy protection, and production constraints.'}</p>
+              <p><strong>Outcome:</strong> ${featured.outcome || featured.metric || 'Live and actively maintained.'}</p>
+              <div class="project-links">
+                <a href="${featured.live}" target="_blank" rel="noreferrer noopener">Live</a>
+                ${featured.github ? `<a href="${featured.github}" target="_blank" rel="noreferrer noopener">GitHub</a>` : ''}
+              </div>
+            </div>
+          </article>
+        `;
+      }
+    }
+
     if (!grid) return;
 
     function renderProjects(filter = 'all') {
@@ -46,6 +71,7 @@
       filtered.forEach(item => {
         const card = document.createElement('article');
         card.className = item.featured ? 'featured-card' : 'project-card tilt-card';
+        card.id = item.id;
         card.innerHTML = `
           <img src="${item.thumbnail}" alt="${item.title} screenshot" loading="lazy">
           <div class="project-copy">

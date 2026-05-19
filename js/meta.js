@@ -2,18 +2,18 @@
 
 const SEO = {
   "index.html": {
-    title: "DarkWing Studio | Portfolio, Web Design, and Creative Development",
-    description: "DarkWing Studio portfolio by Rohit: web design, UI/UX, full-stack development, and creative projects for modern brands.",
+    title: "Rohit Kumar | Frontend & Full-Stack Developer",
+    description: "Portfolio of Rohit Kumar: frontend and full-stack projects with React, Supabase, GraphQL, and JSON-driven architecture built on mobile.",
     path: "/"
   },
   "about.html": {
-    title: "About | DarkWing Studio",
-    description: "About Rohit at DarkWing Studio: design-led developer, service approach, and creative workflow.",
+    title: "About | Rohit Kumar",
+    description: "About Rohit Kumar: frontend and full-stack developer building and shipping from mobile with a JSON-driven workflow.",
     path: "/about.html"
   },
   "projects.html": {
     title: "Projects | DarkWing Studio",
-    description: "Browse selected web design, UI/UX, and development projects by DarkWing Studio.",
+    description: "Browse shipped frontend and full-stack projects by Rohit Kumar, including OpenSourceHub architecture decisions.",
     path: "/projects.html"
   },
   "blog.html": {
@@ -33,7 +33,7 @@ const SEO = {
   },
   "contact.html": {
     title: "Contact | DarkWing Studio",
-    description: "Contact DarkWing Studio for web design, UI/UX, and development collaborations.",
+    description: "Contact Rohit Kumar for frontend and full-stack opportunities and technical collaborations.",
     path: "/contact.html"
   }
 };

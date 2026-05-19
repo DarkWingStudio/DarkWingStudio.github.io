@@ -61,14 +61,14 @@ function buildFooter(meta) {
   return `
     <div class="footer-shell container">
       <div class="footer-top">
-        <h2>Let's Connect there</h2>
-        <a class="footer-hire-btn" href="contact.html">Hire me ↗</a>
+        <h2>Let's Build Something Useful</h2>
+        <a class="footer-hire-btn" href="contact.html">Contact Rohit -></a>
       </div>
 
       <div class="footer-grid">
         <div class="footer-brand-col">
           <h3>${meta.brand || 'DarkWing Studio'}</h3>
-          <p>${meta.bio || 'Building polished web products and creative digital experiences.'}</p>
+          <p>${meta.bio || 'Building polished web products and reliable frontend systems.'}</p>
           <div class="footer-socials">
             <a href="${meta.socials?.github || '#'}" target="_blank" rel="noreferrer noopener" aria-label="GitHub"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"></a>
             <a href="${meta.socials?.instagram || '#'}" target="_blank" rel="noreferrer noopener" aria-label="Instagram"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram"></a>

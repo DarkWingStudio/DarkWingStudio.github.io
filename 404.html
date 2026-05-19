@@ -1,58 +1,117 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — DarkWing Studio</title>
-  <meta name="description" content="Page not found. Return to DarkWing Studio portfolio." />
-  <meta property="og:title" content="404 — DarkWing Studio" />
-  <meta property="og:description" content="Page not found." />
+  <title>404 | Rohit Kumar</title>
+  <meta name="description" content="Page not found. Explore Rohit Kumar's projects, blog, and contact links." />
+  <meta property="og:title" content="404 | Rohit Kumar" />
+  <meta property="og:description" content="Page not found. Head back to projects or homepage." />
   <meta property="og:image" content="assets/og/og.jpg" />
-  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg"  />
+  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/nav.css">
+  <style>
+    .notfound {
+      padding: 5rem 0 3rem;
+    }
+
+    .notfound-card {
+      max-width: 860px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(255, 90, 31, 0.18), transparent 35%),
+        radial-gradient(circle at 90% 20%, rgba(255, 130, 90, 0.16), transparent 30%),
+        var(--surface);
+      padding: clamp(1.4rem, 4vw, 2.2rem);
+      display: grid;
+      gap: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .error-code {
+      display: inline-flex;
+      width: fit-content;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .notfound h1 {
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .notfound p {
+      max-width: 62ch;
+    }
+
+    .notfound-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.25rem;
+    }
+
+    .notfound-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .notfound-links a {
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .notfound {
+        padding-top: 4rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header" id="site-header">
-    <!-- Header will be loaded by partials.js -->
-  </header>
+  <header class="site-header" id="site-header"></header>
 
   <main>
-    <section class="hero-section" id="heroSection">
-      <div class="hero-backdrop"></div>
-      <div class="hero-content container">
-        <div class="hero-copy">
-          <span class="eyebrow">404</span>
-          <h1>Page Not Found</h1>
-          <p class="hero-lead">The shadows have swallowed this path. Let's get you back to the light.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="index.html">Return Home</a>
-            <a class="btn btn-outline" href="contact.html">Contact Me</a>
-          </div>
+    <section class="notfound container">
+      <article class="notfound-card" aria-labelledby="notfoundTitle">
+        <span class="error-code">Error 404</span>
+        <h1 id="notfoundTitle">This page does not exist.</h1>
+        <p>The link may be outdated, or the URL might have a typo. You can continue from homepage, view shipped projects, or reach out directly.</p>
+
+        <div class="notfound-actions">
+          <a class="btn btn-primary" href="index.html">Go to Homepage</a>
+          <a class="btn btn-outline" href="projects.html">View Projects</a>
         </div>
-        <div class="hero-visual">
-          <div class="avatar-shell">
-            <div class="orbital-ring"></div>
-            <img src="assets/avatar/pfp.jpeg" alt="DarkWing character illustration" class="hero-avatar" loading="lazy">
-            <div class="avatar-glow"></div>
-          </div>
+
+        <div class="notfound-links" aria-label="Quick links">
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://github.com/DarkWingStudio" target="_blank" rel="noreferrer noopener">GitHub</a>
         </div>
-      </div>
+      </article>
     </section>
   </main>
 
-  <footer class="site-footer" id="site-footer">
-    <!-- Footer will be loaded by partials.js -->
-  </footer>
+  <footer class="site-footer" id="site-footer"></footer>
 
   <script defer src="js/utils.js"></script>
   <script defer src="js/meta.js"></script>
   <script defer src="js/partials.js"></script>
-  <script defer src="js/particles.js"></script>
-  <script defer src="js/typewriter.js"></script>
-  <script defer src="js/scroll-animate.js"></script>
 </body>
 </html>

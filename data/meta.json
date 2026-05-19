@@ -1,26 +1,27 @@
-{
-  "name": "Rohit",
+﻿{
+  "name": "Rohit Kumar",
   "brand": "DarkWing Studio",
   "taglines": [
     "I build full-stack web apps._",
-    "I create anime & AI art._",
-    "Code meets creativity._"
+    "JSON-driven architecture._",
+    "Built and shipped on mobile._"
   ],
-  "bio": "Full-stack builder and creative director. I turn ideas into production apps using React, Supabase, and GraphQL - then make them look cinematic.",
+  "bio": "Frontend and full-stack developer focused on production apps with React, Supabase, and GraphQL. DarkWing Studio is my build label.",
   "status": "available",
-  "statusText": "Available for freelance",
+  "statusText": "Open to frontend and full-stack roles",
   "currentProject": {
     "name": "PromptVault",
     "status": "COMPILING"
   },
   "deploymentVersion": "v3.0.0",
   "responseTime": "Usually within 24 hours",
-  "availableFor": ["Freelance", "Collaborations", "Full-time roles"],
+  "availableFor": ["Full-time roles", "Collaborations"],
   "socials": {
     "github": "https://github.com/DarkWingStudio",
     "instagram": "https://instagram.com/DarkWing.in",
-    "pinterest": "https://pinterest.com/DarkWingStudio",
+    "pinterest": "https://pinterest.com/DarkWingstudio",
     "email": "darkwingdomain@gmail.com",
     "twitter": "https://x.com/darkwingstudio"
   }
 }
+

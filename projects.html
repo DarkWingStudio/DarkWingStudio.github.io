@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — DarkWing Studio</title>
-  <meta name="description" content="Explore DarkWing Studio's web apps, creative builds, and AI tools powered by vanilla JS and cinematic design." />
-  <meta property="og:title" content="Projects — DarkWing Studio" />
-  <meta property="og:description" content="Browse featured web apps, creative work, and AI tools by DarkWing Studio." />
+  <title>Projects | Rohit Kumar</title>
+  <meta name="description" content="Frontend and full-stack projects by Rohit Kumar, including OpenSourceHub architecture decisions and shipped app workflows." />
+  <meta property="og:title" content="Projects | Rohit Kumar" />
+  <meta property="og:description" content="Browse featured frontend and full-stack projects built by Rohit Kumar." />
   <meta property="og:image" content="assets/og/og.jpg" />
-  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg"  />
+  <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Space+Mono&display=swap" rel="stylesheet">
@@ -17,20 +17,23 @@
   <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
-  <header class="site-header" id="site-header">
-    <!-- Header will be loaded by partials.js -->
-  </header>
+  <header class="site-header" id="site-header"></header>
 
   <main>
     <section class="page-hero page-hero--projects">
       <div class="page-hero__copy container">
         <p class="eyebrow">Projects</p>
-        <h1>Built Worlds, Interfaces, and AI Tools</h1>
-        <p class="page-lead">A portfolio of full-stack web apps, creative experiments, and tools designed for brand-led digital experiences.</p>
+        <h1>Shipped Frontend and Full-Stack Projects</h1>
+        <p class="page-lead">Real apps with architecture decisions, tradeoffs, and production-focused implementation.</p>
       </div>
     </section>
 
     <section class="projects-section container">
+      <section class="featured-project-block" id="featuredProjectBlock" aria-labelledby="featuredProjectHeading">
+        <h2 id="featuredProjectHeading">Featured Project</h2>
+        <div id="featuredProjectMount"></div>
+      </section>
+
       <div class="projects-toolbar">
         <div class="filters" role="tablist" aria-label="Project categories">
           <button class="filter-tab active" data-filter="all">All</button>
@@ -44,9 +47,7 @@
     </section>
   </main>
 
-  <footer class="site-footer" id="site-footer">
-    <!-- Footer will be loaded by partials.js -->
-  </footer>
+  <footer class="site-footer" id="site-footer"></footer>
 
   <script defer src="js/utils.js"></script>
   <script defer src="js/meta.js"></script>

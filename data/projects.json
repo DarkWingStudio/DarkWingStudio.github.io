@@ -3,16 +3,18 @@
     "id": "opensourcehub",
     "title": "OpenSourceHub",
     "oneliner": "A GitHub intelligence platform that scores repo health and surfaces hidden gems.",
-    "description": "Built for developers who want to find quality open source projects fast. Features health scoring, beginner filters, trending detection, and a low-friction zero-auth browsing flow.",
-    "tags": ["React", "Supabase", "GraphQL"],
+    "description": "Built for developers who want to find quality open source projects fast with health scoring, beginner filters, trending detection, and practical discovery workflows.",
+    "tags": ["React", "Vite", "Tailwind", "Supabase", "GraphQL"],
     "category": "web-apps",
     "status": "live",
-    "metric": "6-hour cache TTL / zero auth / edge functions",
+    "metric": "Supabase 6-hour TTL cache / GraphQL rate-limit handling / backend proxy token protection",
     "live": "https://opensourcehub.lovable.app",
-    "github": "",
+    "github": "https://github.com/DarkWingStudio/OpenSourceHub",
     "thumbnail": "assets/projects/opensourcehub.webp",
     "featured": true,
-    "caseStudy": true
+    "caseStudy": true,
+    "challenge": "Handled GraphQL rate limits, protected GitHub tokens behind a backend proxy, and shipped from a phone-only setup.",
+    "outcome": "Live public product indexed on Google and actively used for open-source discovery."
   },
   {
     "id": "linkinbio",
