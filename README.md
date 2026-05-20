@@ -1,64 +1,116 @@
-# DarkWing Studio Portfolio
+# DarkWing Studio — Portfolio
 
-![Live Demo](https://img.shields.io/badge/Live--Demo-darkwingstudio.github.io-green?style=for-the-badge&logo=github)
+![Live](https://img.shields.io/badge/Live-darkwingstudio.github.io-7b2fff?style=for-the-badge&logo=github)
+![Stack](https://img.shields.io/badge/Stack-HTML%20%2F%20CSS%20%2F%20JS-f0f0f0?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-3ecf8e?style=for-the-badge)
 
-## Project Description
+Personal portfolio for **Rohit Kumar (DarkWing Studio)** — frontend and full-stack developer.  
+Built with vanilla HTML, CSS, and JavaScript. No frameworks. No build step. JSON-driven architecture maintained directly from mobile and desktop.
 
-This is the personal portfolio website for DarkWing Studio, showcasing the creative and technical work of Rohit Kumar. The site features selected projects, skills, and contact information, built with a focus on clean design, responsiveness, and modern frontend development practices.
+**Live:** [darkwingstudio.github.io](https://darkwingstudio.github.io)
 
-## Live Demo
+---
 
-Explore the live portfolio here: [https://darkwingstudio.github.io/](https://darkwingstudio.github.io/)
+## Stack
 
-## Features
+| Layer | Tech |
+|---|---|
+| Markup | HTML5 |
+| Styles | CSS3 (custom properties, grid, animations) |
+| Logic | Vanilla JavaScript (ES6+) |
+| Data | JSON files (no database, no CMS) |
+| Icons | Font Awesome 7, SimpleIcons CDN |
+| Fonts | Bebas Neue, Share Tech Mono (Google Fonts) |
+| Hosting | GitHub Pages |
 
-*   **Showcase of Projects**: Detailed sections for various creative and technical projects, including DayKit, UI/Web Experiments, AI Art, and Anime/Motion Edits.
-*   **Skills Overview**: Highlights key technical and creative skills, such as Frontend Development, Creative/AI tools, and Video Editing.
-*   **Responsive Design**: Optimized for seamless viewing across different devices and screen sizes.
-*   **Interactive UI**: Engaging user interface with smooth transitions and animations.
-*   **Social Integration**: Links to DarkWing Studio's social media profiles for broader reach and connection.
+No React. No Vue. No Tailwind. No build pipeline.
 
-## Tech Stack
+---
 
-*   **HTML5**: ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-*   **CSS3**: ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-*   **JavaScript**: ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-*   **Tailwind CSS**: ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+## Architecture
 
-## How to Run Locally
+All content is driven by JSON files in the `/data` directory. The HTML shell loads data at runtime via `fetch()`. The header and footer are injected by `js/partials.js` — no repeated markup across pages.
 
-To set up and run this project on your local machine, follow these steps:
+```
+data/
+  meta.json         → global profile, socials, status, current project
+  projects.json     → project cards and featured project
+  experience.json   → work experience entries with bullet points
+  skills.json       → skill groups (Frontend / Backend / Creative)
+  blog.json         → blog post index
+  posts/            → individual post content as JSON
+```
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/DarkWingStudio/DarkWingStudio.github.io.git
-    cd DarkWingStudio.github.io
-    ```
+To add a project: edit `data/projects.json`.  
+To add a blog post: create `data/posts/<id>.json` and add an entry to `data/blog.json`.  
+To update the current project or status: edit `data/meta.json`.
 
-2.  **Open `index.html`**: Since this is a static website, you can simply open the `index.html` file in your web browser.
+---
 
-    ```bash
-    # On most systems, this command will open the file in your default browser
-    open index.html 
-    # Or manually navigate to the file path in your browser
-    ```
+## Pages
 
-## Screenshots
+| Page | File |
+|---|---|
+| Home | `index.html` |
+| Projects | `projects.html` |
+| About | `about.html` |
+| Experience | `experience.html` |
+| Blog | `blog.html` |
+| Blog Post | `blog-post.html` |
+| Contact | `contact.html` |
+| Privacy Policy | `privacy.html` |
+| Terms of Service | `terms.html` |
+| 404 | `404.html` |
 
-*(Placeholder: Add screenshots of the portfolio website here)*
+---
 
-## License
+## Visual System
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. (Note: A `LICENSE.md` file needs to be added to the repository if not already present.)
+- **Dark cinematic aesthetic** — `#111215` background, `#7b2fff` purple accent
+- **CRT scanline overlay** — pure CSS `body::after`, zero performance cost
+- **PFP glow ring** — CSS `box-shadow` pulse animation on About page
+- **Particle background** — canvas-based, 28 purple particles, respects `prefers-reduced-motion`
+- **Page transitions** — fade + translate on navigation
+- **Card tilt effect** — pointer-driven perspective rotation on project cards
+- **Scroll reveal** — IntersectionObserver on `[data-scroll]` elements
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/DarkWingStudio/darkwingstudio.github.io.git
+cd darkwingstudio.github.io
+```
+
+Open `index.html` in a browser. For accurate JSON fetching, use a local server:
+
+```bash
+# Python
+python -m http.server 8000
+
+# Node
+npx serve .
+```
+
+Then visit `http://localhost:8000`.
+
+---
 
 ## Author
 
-**Rohit Kumar (DarkWing Studio)**
+**Rohit Kumar — DarkWing Studio**
 
-*   **GitHub**: [https://github.com/DarkWingStudio](https://github.com/DarkWingStudio)
-*   **X (Twitter)**: [https://x.com/Darkwingstudio](https://x.com/Darkwingstudio)
-*   **Instagram**: [https://instagram.com/darkwing.in](https://instagram.com/darkwing.in)
-*   **YouTube**: [https://youtube.com/@DarkWing-in](https://youtube.com/@DarkWing-in)
-*   **Pinterest**: [https://pinterest.com/Darkwingstudio](https://pinterest.com/Darkwingstudio)
-*   **Reddit**: [https://www.reddit.com/user/DarkWingStudio](https://www.reddit.com/user/DarkWingStudio)
-*   **Twitch**: [https://www.twitch.tv/darkwingstudio](https://www.twitch.tv/darkwingstudio)
+| Platform | Link |
+|---|---|
+| GitHub | [github.com/DarkWingStudio](https://github.com/DarkWingStudio) |
+| Instagram | [instagram.com/DarkWing.in](https://instagram.com/DarkWing.in) |
+| X | [x.com/darkwingstudio](https://x.com/darkwingstudio) |
+| Pinterest | [pinterest.com/DarkWingstudio](https://pinterest.com/DarkWingstudio) |
+| Email | darkwingdomain@gmail.com |
+
+---
+
+## License
+
+MIT License — see [LICENSE.md](LICENSE.md) for details.
