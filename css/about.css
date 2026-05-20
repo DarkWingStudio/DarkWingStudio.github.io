@@ -16,6 +16,23 @@
   box-shadow: 0 0 50px rgba(123, 47, 255, 0.18);
 }
 
+.pfp-container {
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px rgba(123, 47, 255, 0.4),
+              0 0 20px rgba(123, 47, 255, 0.2),
+              0 0 60px rgba(123, 47, 255, 0.1);
+  animation: pfp-pulse 3s ease-in-out infinite;
+}
+
+@keyframes pfp-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(123, 47, 255, 0.4), 0 0 20px rgba(123, 47, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 2px rgba(123, 47, 255, 0.7), 0 0 40px rgba(123, 47, 255, 0.4);
+  }
+}
+
 .about-copy {
   display: grid;
   gap: 1.2rem;

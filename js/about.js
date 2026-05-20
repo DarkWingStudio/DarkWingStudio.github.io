@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   if (currentWork) {
     const meta = window.DARKWING_META || await fetch('data/meta.json').then(r => r.json());
     currentWork.innerHTML = `<div class="current-work-card" data-scroll>
-        <p>${meta.currentlyWorkingOn || 'Designing an AI-driven portfolio dashboard and launching a new studio web app.'}</p>
+        <p>${meta.currentlyWorkingOn || 'Building PromptVault - an AI art community platform. React + Supabase.'}</p>
       </div>`;
   }
 

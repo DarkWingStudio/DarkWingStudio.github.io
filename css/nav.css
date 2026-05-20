@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap');
 
 .site-nav {
   display: grid;
@@ -51,7 +51,7 @@
 
 .nav-link,
 .nav-cta {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Share Tech Mono', monospace;
   color: var(--text);
   font-size: 0.95rem;
   font-weight: 600;

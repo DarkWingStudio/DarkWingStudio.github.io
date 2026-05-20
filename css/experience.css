@@ -8,7 +8,8 @@
 }
 
 .experience-section {
-  padding: 2rem 0 6rem;
+  padding: 2rem 0 3.5rem;
+  min-height: auto;
 }
 
 .experience-intro {
@@ -20,6 +21,9 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+  align-content: start;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .experience-card {
