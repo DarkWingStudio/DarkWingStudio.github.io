@@ -42,7 +42,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           gap: "16px",
         }}
       >
-        <div style={{ display: "flex", alignItems: "flex-start", gap: "24px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", gap: "clamp(12px, 3vw, 24px)", minWidth: 0, flex: 1 }}>
           <span
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
@@ -56,7 +56,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           >
             {project.number}
           </span>
-          <div>
+          <div style={{ minWidth: 0 }}>
             <h3
               style={{
                 fontFamily: "'Syne', sans-serif",
@@ -64,8 +64,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 fontWeight: 800,
                 color: "#f0f0f0",
                 letterSpacing: "-0.03em",
-                lineHeight: 1,
+                lineHeight: 1.15,
                 marginBottom: "8px",
+                wordBreak: "break-word",
+                overflowWrap: "anywhere",
               }}
             >
               {project.name}
@@ -178,7 +180,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           color: "#555",
           lineHeight: 1.7,
           maxWidth: "680px",
-          paddingLeft: "48px",
+          paddingLeft: "clamp(28px, 6vw, 48px)",
         }}
       >
         {project.description}
@@ -190,7 +192,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           display: "flex",
           flexWrap: "wrap",
           gap: "8px",
-          paddingLeft: "48px",
+          paddingLeft: "clamp(28px, 6vw, 48px)",
         }}
       >
         <span

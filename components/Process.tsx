@@ -83,8 +83,8 @@ export default function Process() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
               style={{
                 display: "grid",
-                gridTemplateColumns: "48px 1fr auto",
-                gap: "24px",
+                gridTemplateColumns: "clamp(24px, 5vw, 48px) minmax(0, 1fr) auto",
+                gap: "clamp(12px, 4vw, 24px)",
                 alignItems: "start",
                 padding: "32px 0",
                 borderTop: "1px solid rgba(255,255,255,0.06)",
@@ -120,6 +120,8 @@ export default function Process() {
                     color: "#f0f0f0",
                     letterSpacing: "-0.02em",
                     marginBottom: "12px",
+                    wordBreak: "break-word",
+                    overflowWrap: "anywhere",
                   }}
                 >
                   {cap.title}

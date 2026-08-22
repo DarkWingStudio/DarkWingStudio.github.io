@@ -85,7 +85,7 @@ export default function Hero() {
             fontSize: "clamp(36px, 8.5vw, 110px)",
             fontWeight: 800,
             letterSpacing: "-0.04em",
-            lineHeight: "0.95",
+            lineHeight: "1.1",
             color: "#f0f0f0",
             marginBottom: "48px",
           }}

@@ -80,8 +80,8 @@ export default function About() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "80px",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gap: "clamp(40px, 8vw, 80px)",
             alignItems: "start",
           }}
         >
@@ -177,6 +177,8 @@ export default function About() {
                       fontFamily: "'Space Grotesk', sans-serif",
                       fontSize: "14px",
                       color: "#666",
+                      wordBreak: "break-word",
+                      overflowWrap: "anywhere",
                     }}
                   >
                     {value}
