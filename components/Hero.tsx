@@ -144,6 +144,7 @@ export default function Hero() {
                   el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
+              className="cursor-target"
               style={{
                 padding: "14px 28px",
                 background: "#f0f0f0",
@@ -177,6 +178,7 @@ export default function Hero() {
               href="https://github.com/DarkWingStudio"
               target="_blank"
               rel="noreferrer"
+              className="cursor-target"
               style={{
                 padding: "14px 28px",
                 background: "transparent",

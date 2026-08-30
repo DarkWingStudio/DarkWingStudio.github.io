@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const links = [
   { label: "Work", href: "#work" },
@@ -94,6 +95,7 @@ export default function Navbar() {
             <button
               key={l.href}
               onClick={() => handleNav(l.href)}
+              className="cursor-target"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "13px",
@@ -112,11 +114,31 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
+          <Link
+            href="/resume"
+            className="cursor-target"
+            style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: "13px",
+              fontWeight: 500,
+              color: "#050505",
+              background: "#f0f0f0",
+              textDecoration: "none",
+              padding: "6px 16px",
+              borderRadius: "999px",
+              letterSpacing: "0.02em",
+              transition: "opacity 0.2s ease",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Resume
+          </Link>
         </nav>
 
         {/* Hamburger — Fix 2: use className, NO inline display:none */}
         <button
-          className="nav-hamburger"
+          className="nav-hamburger cursor-target"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
@@ -183,9 +205,10 @@ export default function Navbar() {
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ delay: i * 0.06, duration: 0.3 }}
                 onClick={() => handleNav(l.href)}
+                className="cursor-target"
                 style={{
                   fontFamily: "'Syne', sans-serif",
-                  fontSize: "clamp(36px, 12vw, 56px)",
+                  fontSize: "clamp(28px, 9vw, 48px)",
                   fontWeight: 800,
                   color: "#f0f0f0",
                   letterSpacing: "-0.03em",
@@ -201,6 +224,30 @@ export default function Navbar() {
                 {l.label}
               </motion.button>
             ))}
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ delay: links.length * 0.06, duration: 0.3 }}
+            >
+              <Link
+                href="/resume"
+                className="cursor-target"
+                style={{
+                  fontFamily: "'Syne', sans-serif",
+                  fontSize: "clamp(28px, 9vw, 48px)",
+                  fontWeight: 800,
+                  color: "#f0f0f0",
+                  letterSpacing: "-0.03em",
+                  textDecoration: "none",
+                  padding: "12px 24px",
+                  display: "inline-block"
+                }}
+              >
+                Resume
+              </Link>
+            </motion.div>
 
             {/* Contact CTA in mobile menu */}
             <motion.a

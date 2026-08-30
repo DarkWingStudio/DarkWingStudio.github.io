@@ -8,19 +8,28 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // Skip loading screen for returning visitors in the same session
+    const seen = sessionStorage.getItem('rk-loaded');
+    if (seen) {
+      setVisible(false);
+      onComplete();
+      return;
+    }
     const interval = setInterval(() => {
       setCount((c) => {
         if (c >= 100) {
           clearInterval(interval);
+          sessionStorage.setItem('rk-loaded', '1');
           setTimeout(() => {
             setVisible(false);
-            setTimeout(onComplete, 600);
-          }, 200);
+            setTimeout(onComplete, 500);
+          }, 150);
           return 100;
         }
-        return c + Math.floor(Math.random() * 8) + 3;
+        // Faster increment — target ~700ms total
+        return Math.min(c + Math.floor(Math.random() * 12) + 6, 100);
       });
-    }, 40);
+    }, 30);
     return () => clearInterval(interval);
   }, [onComplete]);
 
@@ -41,6 +50,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             alignItems: "center",
             justifyContent: "center",
             gap: "32px",
+            pointerEvents: visible ? "all" : "none",
           }}
         >
           {/* Logo */}
@@ -49,7 +59,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: "'Syne', sans-serif",
+              fontFamily: "var(--font-syne), 'Syne', sans-serif",
               fontSize: "48px",
               fontWeight: 800,
               color: "#f0f0f0",
@@ -83,7 +93,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
           {/* Counter */}
           <span
             style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
               fontSize: "11px",
               color: "#444",
               letterSpacing: "0.15em",

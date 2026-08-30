@@ -120,6 +120,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
+                className="cursor-target"
                 onClick={(e) => e.stopPropagation()}
                 style={{
                   padding: "6px 14px",

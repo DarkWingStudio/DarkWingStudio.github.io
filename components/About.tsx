@@ -89,9 +89,11 @@ export default function About() {
           <div>
             <div style={{ marginBottom: "32px", borderRadius: "16px", overflow: "hidden", position: "relative", width: "120px", height: "120px", border: "1px solid rgba(255,255,255,0.1)" }}>
               <Image 
-                src="/profile.png" 
-                alt="Rohit Kumar" 
+                src="/icon.webp" 
+                alt="Rohit Kumar — Frontend Developer & Creative Technologist" 
                 fill 
+                priority
+                sizes="120px"
                 style={{ objectFit: "cover" }} 
               />
             </div>

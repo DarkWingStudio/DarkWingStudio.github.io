@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap');
-
 @import "tailwindcss";
 
 :root {
@@ -14,8 +12,8 @@
   --accent: #ffffff;
   --accent-dim: rgba(255, 255, 255, 0.08);
   --radius: 16px;
-  --font-heading: 'Syne', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-heading: var(--font-syne), sans-serif;
+  --font-body: var(--font-space-grotesk), sans-serif;
 }
 
 *,
@@ -24,12 +22,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
+}
+
+*:hover,
+*:focus,
+*:active {
+  cursor: none !important;
 }
 
 html {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  /* Hide native cursor so custom cursor shows only */
+  cursor: none;
 }
 
 body {
@@ -150,4 +157,31 @@ footer {
 
 section {
   scroll-margin-top: 72px; /* Navbar height offset */
+}
+
+/* ─── Accessibility skip link ─── */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-to-main:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: #fff;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  width: auto;
+  height: auto;
+  overflow: visible;
 }

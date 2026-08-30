@@ -27,6 +27,7 @@ export default function Process() {
 
   return (
     <section
+      id="process"
       style={{
         maxWidth: "1200px",
         margin: "0 auto",

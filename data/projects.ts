@@ -22,11 +22,11 @@ export const projects: Project[] = [
       "DayKit is a focused collection of everyday utility tools — password checker, text cleaner, focus timer, and countdown. Built around the idea that useful tools should be simple and distraction-free.",
     problem:
       "Small productivity tasks get scattered across dozens of browser tabs and unrelated apps.",
-    tags: ["React", "JavaScript", "CSS"],
+    tags: ["HTML", "JavaScript", "CSS"],
     category: "Utility · Web",
     status: "Live",
     liveUrl: "https://daykit.netlify.app/",
-    githubUrl: "https://github.com/DarkWingStudio",
+    githubUrl: "https://github.com/DarkWingStudio/DayKit",
     accent: "#f0f0f0",
     number: "01",
   },

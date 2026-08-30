@@ -148,7 +148,7 @@ export default function Contact() {
             alignItems: "center",
             gap: "16px",
             fontFamily: "'Syne', sans-serif",
-            fontSize: "clamp(20px, 3vw, 36px)",
+            fontSize: "clamp(18px, 3vw, 36px)",
             fontWeight: 700,
             color: "#888",
             letterSpacing: "-0.02em",
@@ -180,7 +180,7 @@ export default function Contact() {
               key={s.label}
               href={s.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer me"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
